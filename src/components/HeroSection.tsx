@@ -96,43 +96,14 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative">
-              {/* Decorative background glow */}
-              <div className="absolute -inset-6 bg-gradient-to-br from-pastel-pink via-pastel-lavender to-pastel-blue rounded-3xl blur-3xl opacity-40" />
-              <div className="absolute -inset-3 bg-gradient-to-tr from-primary/10 to-accent/10 rounded-2xl" />
-              
-              {/* Headshot image - modern rounded rectangle */}
-              <motion.img
-                src={headshot}
-                alt="Jessel Grace Diagbel"
-                className="relative z-10 w-72 h-72 md:w-96 md:h-96 rounded-3xl object-cover border-2 border-white/80 dark:border-[#1E3A5F]/60 shadow-[0_8px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_30px_rgba(30,58,95,0.3)]"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              />
-
-              {/* Floating decorative elements */}
-              <motion.div
-                className="absolute -top-2 -right-2 w-12 h-12 bg-pastel-pink rounded-2xl flex items-center justify-center shadow-lg"
-                animate={{ y: [0, -8, 0], rotate: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <span className="text-xl">💖</span>
-              </motion.div>
-              <motion.div
-                className="absolute -bottom-1 -left-4 w-10 h-10 bg-pastel-blue rounded-xl flex items-center justify-center shadow-lg"
-                animate={{ y: [0, 8, 0], rotate: [0, -10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              >
-                <span className="text-lg">⚡</span>
-              </motion.div>
-              <motion.div
-                className="absolute top-1/2 -right-6 w-8 h-8 bg-pastel-lavender rounded-lg flex items-center justify-center shadow-lg"
-                animate={{ x: [0, 8, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              >
-                <span className="text-sm">✨</span>
-              </motion.div>
-            </div>
+            {/* Clean headshot image - no decorations */}
+            <motion.img
+              src={headshot}
+              alt="Jessel Grace Diagbel"
+              className="w-72 h-72 md:w-96 md:h-96 rounded-3xl object-cover border-2 border-white/10 shadow-[0_8px_30px_rgba(255,255,255,0.1)] dark:border-[#1E3A5F]/60 dark:shadow-[0_8px_30px_rgba(30,58,95,0.3)]"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
           </motion.div>
         </div>
       </div>
