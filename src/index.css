@@ -6,26 +6,26 @@
 
 @layer base {
   :root {
-    --background: 350 100% 98%;
-    --foreground: 240 10% 25%;
+    --background: 260 50% 99%;
+    --foreground: 0 0% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 25%;
+    --card-foreground: 0 0% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 25%;
+    --popover-foreground: 0 0% 18%;
 
     --primary: 350 70% 85%;
-    --primary-foreground: 240 10% 20%;
+    --primary-foreground: 0 0% 18%;
 
     --secondary: 186 100% 93%;
-    --secondary-foreground: 240 10% 20%;
+    --secondary-foreground: 0 0% 18%;
 
     --muted: 250 67% 95%;
-    --muted-foreground: 240 10% 45%;
+    --muted-foreground: 0 0% 35%;
 
     --accent: 250 67% 93%;
-    --accent-foreground: 240 10% 20%;
+    --accent-foreground: 0 0% 18%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -35,6 +35,9 @@
     --ring: 350 70% 75%;
 
     --radius: 1rem;
+
+    /* Heading color - deep lavender */
+    --heading: 262 52% 47%;
 
     /* Custom pastel colors */
     --pastel-pink: 350 100% 94%;
@@ -85,6 +88,9 @@
     --border: 215 30% 25%;
     --input: 215 30% 25%;
     --ring: 252 40% 60%;
+
+    /* Heading color - lighter for dark mode */
+    --heading: 252 40% 75%;
 
     /* Custom dark pastel colors */
     --pastel-pink: 350 30% 45%;

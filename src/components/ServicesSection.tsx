@@ -70,7 +70,7 @@ export const ServicesSection = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
             Services That
             <span className="text-gradient"> Scale Your Business</span>
           </h2>
@@ -118,10 +118,13 @@ export const ServicesSection = () => {
                 </div>
               </div>
 
-              <button className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group-hover:gap-3">
+              <a
+                href="#consultation"
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group-hover:gap-3"
+              >
                 Get Started
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
             </motion.div>
           ))}
         </div>

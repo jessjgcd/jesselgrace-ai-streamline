@@ -40,7 +40,7 @@ export const ConsultationSection = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
             Free 30-Minute
             <span className="text-gradient"> Discovery Call</span>
           </h2>

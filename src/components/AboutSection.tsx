@@ -17,7 +17,7 @@ export const AboutSection = () => {
             <span className="text-sm font-medium text-foreground">About Me</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-heading mb-8">
             Empowering Businesses with
             <span className="text-gradient"> Smart Automation</span>
           </h2>
