@@ -8,6 +8,7 @@ import { ROICalculator } from "@/components/ROICalculator";
 import { SuccessStoriesSection } from "@/components/SuccessStoriesSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { ContactSection } from "@/components/ContactSection";
+import { CalendarBookingSection } from "@/components/CalendarBookingSection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -24,6 +25,7 @@ const Index = () => {
         <SuccessStoriesSection />
         <ProcessSection />
         <ContactSection />
+        <CalendarBookingSection />
       </main>
       <Footer />
     </div>

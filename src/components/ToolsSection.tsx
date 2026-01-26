@@ -8,7 +8,7 @@ const tools = [
   },
   {
     name: "GoHighLevel",
-    logo: "https://assets.cdn.filesafe.space/46hdVqPlBK8OsXPLtLAu/media/65beb413dfeb92b81c27f23d.png",
+    logo: "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/48175265495/original/PTXBCP40UHx-8LCKsM1zqLX-pq8nndFHSw.png",
   },
   {
     name: "Zapier",
@@ -24,11 +24,11 @@ const tools = [
   },
   {
     name: "n8n",
-    logo: "https://n8n.io/n8n-logo.svg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/N8n-logo-new.svg",
   },
   {
     name: "Mailchimp",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Mailchimp_Logo.svg/512px-Mailchimp_Logo.svg.png",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/be/MailChimp_Logo_Text.svg",
   },
   {
     name: "Airtable",
