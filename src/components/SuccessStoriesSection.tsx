@@ -54,7 +54,7 @@ export const SuccessStoriesSection = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
             Client
             <span className="text-gradient"> Transformations</span>
           </h2>
@@ -115,10 +115,13 @@ export const SuccessStoriesSection = () => {
                 </div>
               </div>
 
-              <button className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group-hover:gap-3">
+              <a
+                href="#contact"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group-hover:gap-3"
+              >
                 Get Similar Results
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </a>
             </motion.div>
           ))}
         </div>

@@ -76,7 +76,7 @@ export const ProcessSection = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
             From Idea to
             <span className="text-gradient"> Automation</span>
           </h2>

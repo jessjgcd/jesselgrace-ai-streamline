@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -47,7 +47,7 @@ export const ContactSection = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
             Let's Start Your
             <span className="text-gradient"> Automation Journey</span>
           </h2>
@@ -146,7 +146,7 @@ export const ContactSection = () => {
 
               <div className="space-y-4">
                 <a
-                  href="mailto:jesselgrace@gmail.com"
+                  href="mailto:jdiagbel8@gmail.com"
                   className="flex items-center gap-4 p-3 rounded-xl bg-muted hover:bg-accent transition-colors"
                 >
                   <div className="w-10 h-10 rounded-full bg-pastel-pink flex items-center justify-center">
@@ -155,7 +155,7 @@ export const ContactSection = () => {
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
                     <p className="font-medium text-foreground">
-                      jesselgrace@gmail.com
+                      jdiagbel8@gmail.com
                     </p>
                   </div>
                 </a>
@@ -198,20 +198,36 @@ export const ContactSection = () => {
 
               <div className="flex gap-4">
                 <a
-                  href="https://linkedin.com"
+                  href="https://facebook.com/jesselgracediagbel"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full bg-pastel-blue flex items-center justify-center hover:scale-110 transition-transform"
                 >
-                  <Linkedin className="h-5 w-5 text-foreground" />
+                  <Facebook className="h-5 w-5 text-foreground dark:text-white" />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://linkedin.com/in/jesselgracediagbel"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full bg-pastel-lavender flex items-center justify-center hover:scale-110 transition-transform"
                 >
-                  <Twitter className="h-5 w-5 text-foreground" />
+                  <Linkedin className="h-5 w-5 text-foreground dark:text-white" />
+                </a>
+                <a
+                  href="https://instagram.com/jesselgracediagbel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-pastel-pink flex items-center justify-center hover:scale-110 transition-transform"
+                >
+                  <Instagram className="h-5 w-5 text-foreground dark:text-white" />
+                </a>
+                <a
+                  href="https://twitter.com/jesselgracediagbel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-pastel-blue flex items-center justify-center hover:scale-110 transition-transform"
+                >
+                  <Twitter className="h-5 w-5 text-foreground dark:text-white" />
                 </a>
               </div>
             </div>
