@@ -3,36 +3,16 @@ import { Sparkles } from "lucide-react";
 
 const tools = [
   {
-    name: "Make.com",
-    logo: "https://images.ctfassets.net/un655fb9wln6/7HvRcEszYsu56K8WjQR5Lc/ab15a4c59a3a3f3b4f9a0bf24e2f7eb8/Make_logo.svg",
-  },
-  {
-    name: "GoHighLevel",
-    logo: "https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/48175265495/original/PTXBCP40UHx-8LCKsM1zqLX-pq8nndFHSw.png",
-  },
-  {
-    name: "Zapier",
-    logo: "https://cdn.worldvectorlogo.com/logos/zapier-1.svg",
-  },
-  {
-    name: "OpenAI",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
-  },
-  {
-    name: "Claude",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg",
+    name: "Make",
+    logo: "https://1000logos.net/wp-content/uploads/2026/01/Make-com-Logo.jpg",
   },
   {
     name: "n8n",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/29/N8n-logo-new.svg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/N8n-logo-new.svg/1280px-N8n-logo-new.svg.png",
   },
   {
-    name: "Mailchimp",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/be/MailChimp_Logo_Text.svg",
-  },
-  {
-    name: "Airtable",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Airtable_Logo.svg",
+    name: "Grok",
+    logo: "https://images.seeklogo.com/logo-png/61/1/grok-logo-png_seeklogo-613403.png",
   },
 ];
 
