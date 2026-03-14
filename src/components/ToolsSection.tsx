@@ -78,8 +78,11 @@ export const ToolsSection = () => {
               >
                 <img
                   src={tool.logo}
-                  alt={tool.name}
-                  className="h-8 md:h-12 w-auto min-w-[80px] max-w-[120px] object-contain grayscale hover:grayscale-0 dark:grayscale-0 transition-all duration-300"
+                  alt={`${tool.name} logo`}
+                  width="65"
+                  height="65"
+                  loading="eager"
+                  className="object-contain grayscale hover:grayscale-0 dark:grayscale-0 transition-all duration-300"
                 />
                 <p className="text-center text-xs font-medium text-muted-foreground mt-2">
                   {tool.name}
