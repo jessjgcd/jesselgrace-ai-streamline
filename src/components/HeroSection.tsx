@@ -24,7 +24,7 @@ export const HeroSection = () => {
               className="inline-block"
             >
               <span className="px-4 py-2 rounded-full bg-primary/30 text-foreground text-sm font-medium">
-                Jessel Grace Diagbel | AI Automation Specialist
+                Jessel Grace Diagbel | ⭐ AI Automation Specialist
               </span>
             </motion.div>
 
