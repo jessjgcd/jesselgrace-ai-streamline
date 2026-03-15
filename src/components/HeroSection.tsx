@@ -41,7 +41,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-muted-foreground font-medium"
+              className="text-base md:text-lg text-muted-foreground/80 font-normal"
             >
               I design intelligent workflows, AI agents, and automation systems that streamline business operations, reduce manual tasks, and improve efficiency.
             </motion.p>
