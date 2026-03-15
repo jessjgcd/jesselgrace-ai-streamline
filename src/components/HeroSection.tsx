@@ -32,7 +32,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 bg-clip-text text-transparent leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#4338CA] to-[#6D28D9] bg-clip-text text-transparent leading-tight"
             >
               I Build AI Automation Systems That Save Businesses Hours of Work
             </motion.h1>
