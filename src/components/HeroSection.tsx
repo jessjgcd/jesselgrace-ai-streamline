@@ -24,7 +24,7 @@ export const HeroSection = () => {
               className="inline-block"
             >
               <span className="px-4 py-2 rounded-full bg-primary/30 text-foreground text-sm font-medium">
-                ✨ AI Automation Expert
+                Jessel Grace Diagbel | AI Automation Specialist
               </span>
             </motion.div>
 
@@ -34,9 +34,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight"
             >
-              Jessel Grace
-              <br />
-              <span className="text-gradient">Diagbel</span>
+              I Build AI Automation Systems That Save Businesses Hours of Work
             </motion.h1>
 
             <motion.p
@@ -45,18 +43,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-muted-foreground font-medium"
             >
-              AI Automation & Funnel Expert | Streamlining Businesses with Smart
-              Funnels & Workflows
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-foreground/80 text-base md:text-lg max-w-lg"
-            >
-              Transform tech stress into 24/7 efficiency with custom automations
-              that attract and qualify clients effortlessly.
+              I design intelligent workflows, AI agents, and automation systems that streamline business operations, reduce manual tasks, and improve efficiency.
             </motion.p>
 
             <motion.div
