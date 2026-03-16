@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import projectBanner from "@/assets/project-banner.png";
 
 const projects = [
   {
@@ -37,16 +38,18 @@ export const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        {/* Banner placeholder */}
+        {/* Banner image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="w-full h-48 md:h-64 rounded-2xl bg-gradient-button mb-12 flex items-center justify-center shadow-lg"
+          className="w-full h-48 md:h-64 rounded-2xl mb-12 shadow-lg overflow-hidden"
         >
-          <p className="text-primary-foreground/70 text-lg font-medium">
-            Banner Image Placeholder – Upload your image here
-          </p>
+          <img
+            src={projectBanner}
+            alt="Featured Projects Banner"
+            className="w-full h-full object-cover"
+          />
         </motion.div>
 
         {/* Project cards */}
