@@ -3,10 +3,6 @@ import { Sparkles } from "lucide-react";
 
 const tools = [
   {
-    name: "Make",
-    logo: "https://1000logos.net/wp-content/uploads/2026/01/Make-com-Logo.jpg",
-  },
-  {
     name: "n8n",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/N8n-logo-new.svg/1280px-N8n-logo-new.svg.png",
   },
