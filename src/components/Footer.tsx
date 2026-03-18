@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+
 import logo from "@/assets/logo.png";
 
 export const Footer = () => {
@@ -24,19 +24,9 @@ export const Footer = () => {
               </a>
             </div>
 
-            <div className="flex items-center gap-1 text-sm text-muted-foreground">
-              <span>Built with</span>
-              <Heart className="h-4 w-4 text-primary fill-primary" />
-              <span>using</span>
-              <a
-                href="https://lovable.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                Lovable.dev
-              </a>
-            </div>
+            <span className="text-sm text-muted-foreground">
+              All rights reserved.
+            </span>
           </div>
         </div>
       </div>

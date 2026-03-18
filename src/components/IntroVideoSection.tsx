@@ -19,7 +19,7 @@ export const IntroVideoSection = () => {
 
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border border-border/50">
             <iframe
-              src="https://www.youtube.com/embed/PLACEHOLDER_INTRO_VIDEO"
+              src="https://www.youtube.com/embed/w1gBYUPAG1o"
               title="Meet Jessel Grace"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
