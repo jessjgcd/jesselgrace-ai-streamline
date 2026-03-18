@@ -79,7 +79,7 @@ export const CalendarBookingSection = () => {
               <div className="rounded-2xl overflow-hidden">
                 <div
                   className="calendly-inline-widget"
-                  data-url="https://calendly.com/jdiagbel8/30min?background_color=adc5f9&text_color=493c59&primary_color=f3a2b6"
+                  data-url="https://calendly.com/jdiagbel8/30min?background_color=fdf4ff&text_color=291b1b&primary_color=d946ef"
                   style={{ minWidth: "320px", height: "800px" }}
                 />
               </div>
