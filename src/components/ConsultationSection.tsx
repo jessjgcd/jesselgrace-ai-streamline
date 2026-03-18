@@ -84,9 +84,7 @@ export const ConsultationSection = () => {
           className="text-center"
         >
           <a
-            href="https://calendly.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#booking"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-button rounded-full text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
           >
             <Calendar className="h-5 w-5" />
