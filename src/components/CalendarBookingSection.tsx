@@ -1,7 +1,61 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, Globe, Video } from "lucide-react";
+import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initBadgeWidget: (opts: Record<string, unknown>) => void;
+      showPopupWidget: (url: string) => void;
+    };
+  }
+}
 
 export const CalendarBookingSection = () => {
+  useEffect(() => {
+    // Load Calendly CSS
+    if (!document.querySelector('link[href*="calendly"]')) {
+      const link = document.createElement("link");
+      link.href = "https://assets.calendly.com/assets/external/widget.css";
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
+    }
+
+    // Init badge widget once script is ready
+    const initBadge = () => {
+      if (window.Calendly) {
+        window.Calendly.initBadgeWidget({
+          url: "https://calendly.com/jdiagbel8/30min",
+          text: "Book Free Call",
+          color: "#d946ef",
+          textColor: "#ffffff",
+          branding: false,
+        });
+      }
+    };
+
+    if (window.Calendly) {
+      initBadge();
+    } else {
+      // Wait for the script loaded in index.html
+      const interval = setInterval(() => {
+        if (window.Calendly) {
+          initBadge();
+          clearInterval(interval);
+        }
+      }, 200);
+      return () => clearInterval(interval);
+    }
+  }, []);
+
+  const openCalendly = () => {
+    if (window.Calendly) {
+      window.Calendly.showPopupWidget(
+        "https://calendly.com/jdiagbel8/30min?background_color=fdf4ff&text_color=291b1b&primary_color=d946ef"
+      );
+    }
+  };
+
   return (
     <section id="booking" className="py-20 px-4 bg-gradient-hero">
       <div className="container mx-auto">
@@ -38,7 +92,6 @@ export const CalendarBookingSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Calendar Card with Pastel Frame */}
           <div className="bg-card rounded-3xl border-2 border-primary/20 shadow-xl overflow-hidden">
             {/* Header */}
             <div className="bg-gradient-button p-6 text-center">
@@ -48,7 +101,6 @@ export const CalendarBookingSection = () => {
               </h3>
             </div>
 
-            {/* Calendar Content */}
             <div className="p-6 md:p-8">
               {/* Info Cards */}
               <div className="grid md:grid-cols-3 gap-4 mb-8">
@@ -75,17 +127,22 @@ export const CalendarBookingSection = () => {
                 </div>
               </div>
 
-              {/* Calendly Inline Widget */}
-              <div className="rounded-2xl overflow-hidden">
-                <div
-                  className="calendly-inline-widget"
-                  data-url="https://calendly.com/jdiagbel8/30min?background_color=fdf4ff&text_color=291b1b&primary_color=d946ef"
-                  style={{ minWidth: "320px", height: "800px" }}
-                />
+              {/* CTA to open popup */}
+              <div className="text-center py-12">
+                <button
+                  onClick={openCalendly}
+                  className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-button rounded-full text-primary-foreground font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                >
+                  <Calendar className="h-6 w-6" />
+                  Pick a Time Now
+                </button>
+                <p className="text-sm text-muted-foreground mt-4">
+                  Or use the floating <span className="text-primary font-medium">"Book Free Call"</span> button at the bottom-right corner.
+                </p>
               </div>
 
               {/* What to Expect */}
-              <div className="mt-8 p-6 bg-accent/20 rounded-2xl">
+              <div className="mt-4 p-6 bg-accent/20 rounded-2xl">
                 <h4 className="font-semibold text-foreground mb-3">
                   What to expect in this call:
                 </h4>

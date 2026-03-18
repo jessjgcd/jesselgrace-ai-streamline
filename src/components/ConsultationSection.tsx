@@ -22,6 +22,14 @@ const options = [
   },
 ];
 
+const openCalendly = () => {
+  if (window.Calendly) {
+    window.Calendly.showPopupWidget(
+      "https://calendly.com/jdiagbel8/30min?background_color=fdf4ff&text_color=291b1b&primary_color=d946ef"
+    );
+  }
+};
+
 export const ConsultationSection = () => {
   return (
     <section id="consultation" className="py-20 px-4 bg-gradient-hero">
@@ -53,9 +61,9 @@ export const ConsultationSection = () => {
 
         <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
           {options.map((option, index) => (
-            <motion.a
+            <motion.button
               key={option.title}
-              href="#booking"
+              onClick={openCalendly}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -73,7 +81,7 @@ export const ConsultationSection = () => {
               <p className="text-sm text-muted-foreground">
                 {option.description}
               </p>
-            </motion.a>
+            </motion.button>
           ))}
         </div>
 
@@ -84,13 +92,13 @@ export const ConsultationSection = () => {
           transition={{ delay: 0.4 }}
           className="text-center"
         >
-          <a
-            href="#booking"
+          <button
+            onClick={openCalendly}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-button rounded-full text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
           >
             <Calendar className="h-5 w-5" />
             Book Now
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>
