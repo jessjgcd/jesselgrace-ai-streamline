@@ -53,13 +53,14 @@ export const ConsultationSection = () => {
 
         <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
           {options.map((option, index) => (
-            <motion.div
+            <motion.a
               key={option.title}
+              href="#booking"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-card border border-border card-hover text-center"
+              className="p-6 rounded-2xl bg-card border border-border card-hover text-center cursor-pointer block"
             >
               <div
                 className={`w-14 h-14 rounded-full bg-${option.color} flex items-center justify-center mb-4 mx-auto`}
@@ -72,7 +73,7 @@ export const ConsultationSection = () => {
               <p className="text-sm text-muted-foreground">
                 {option.description}
               </p>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
