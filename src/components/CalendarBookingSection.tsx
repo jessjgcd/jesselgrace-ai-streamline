@@ -75,27 +75,13 @@ export const CalendarBookingSection = () => {
                 </div>
               </div>
 
-              {/* Google Calendar Embed Placeholder */}
-              <div className="bg-muted/50 rounded-2xl p-8 text-center border-2 border-dashed border-primary/30">
-                <Calendar className="h-16 w-16 text-primary/50 mx-auto mb-4" />
-                <p className="text-muted-foreground mb-6">
-                  Google Calendar appointment scheduler will appear here
-                </p>
-                
-                {/* Placeholder Button - Replace href with your Google Calendar booking URL */}
-                <a
-                  href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-button rounded-2xl text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 text-lg"
-                >
-                  <Calendar className="h-6 w-6" />
-                  Open Google Calendar to Book
-                </a>
-
-                <p className="text-sm text-muted-foreground mt-4">
-                  Click above to select your preferred date and time
-                </p>
+              {/* Calendly Inline Widget */}
+              <div className="rounded-2xl overflow-hidden">
+                <div
+                  className="calendly-inline-widget"
+                  data-url="https://calendly.com/jdiagbel8/30min?background_color=adc5f9&text_color=493c59&primary_color=f3a2b6"
+                  style={{ minWidth: "320px", height: "700px" }}
+                />
               </div>
 
               {/* What to Expect */}
