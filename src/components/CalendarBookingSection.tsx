@@ -80,7 +80,7 @@ export const CalendarBookingSection = () => {
                 <div
                   className="calendly-inline-widget"
                   data-url="https://calendly.com/jdiagbel8/30min?background_color=adc5f9&text_color=493c59&primary_color=f3a2b6"
-                  style={{ minWidth: "320px", height: "700px" }}
+                  style={{ minWidth: "320px", height: "800px" }}
                 />
               </div>
 
