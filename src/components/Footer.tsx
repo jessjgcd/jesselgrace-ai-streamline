@@ -11,7 +11,7 @@ export const Footer = () => {
             <div className="flex items-center gap-2">
               <img src={logo} alt="Glogicraft Logo" className="h-8 w-8" />
               <span className="font-poppins text-sm text-muted-foreground">
-                © 2026 Jessel Grace Diagbel
+                © 2025 Jessel Grace Diagbel
               </span>
             </div>
 
