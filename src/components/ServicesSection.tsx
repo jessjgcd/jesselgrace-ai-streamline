@@ -46,7 +46,7 @@ const services = [
     icon: FolderKanban,
     title: "Project Management",
     description: "Coordinated onboarding, tasks, and team workflows",
-    tools: "Make.com, Zapier",
+    tools: "Make.com, Zapier, n8n",
     benefit: "60% time saved",
     color: "pastel-lavender",
   },
