@@ -22,7 +22,7 @@ const services = [
     icon: FileText,
     title: "Content Automation",
     description: "Dynamic pipelines for blogs, emails, and social content",
-    tools: "OpenAI, Make.com",
+    tools: "OpenAI, Make.com, n8n",
     benefit: "3x content output",
     color: "pastel-lavender",
   },
