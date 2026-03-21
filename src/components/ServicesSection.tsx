@@ -38,7 +38,7 @@ const services = [
     icon: TrendingUp,
     title: "Sales Automation",
     description: "Funnel optimizations that close deals while you sleep",
-    tools: "GHL, Make.com",
+    tools: "GHL, Make.com, n8n",
     benefit: "2x conversion rate",
     color: "pastel-blue",
   },
