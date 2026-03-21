@@ -30,7 +30,7 @@ const services = [
     icon: BarChart3,
     title: "Marketing Automation",
     description: "Campaign workflows with real-time performance tracking",
-    tools: "GHL, Zapier",
+    tools: "GHL, Zapier, n8n",
     benefit: "40% better ROI",
     color: "pastel-pink",
   },
