@@ -6,7 +6,7 @@ const services = [
     icon: Bot,
     title: "AI Agents & Workflows",
     description: "Custom funnels that handle leads and decisions automatically",
-    tools: "Make.com, GHL",
+    tools: "n8n, Make.com, GHL",
     benefit: "24/7 automated operations",
     color: "pastel-pink",
   },
