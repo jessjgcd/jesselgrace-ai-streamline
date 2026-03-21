@@ -14,7 +14,7 @@ const services = [
     icon: Users,
     title: "Lead Generation",
     description: "Multi-channel systems with intelligent lead nurturing",
-    tools: "GHL, Zapier",
+    tools: "GHL, Zapier, n8n",
     benefit: "50% faster lead qualification",
     color: "pastel-blue",
   },
