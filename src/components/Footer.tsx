@@ -3,10 +3,21 @@ import logo from "@/assets/logo.png";
 
 export const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border">
-      {/* Footer content */}
+    <footer className="border-t border-border" style={{ backgroundColor: "#fdf4ff" }}>
       <div className="py-8 px-4">
         <div className="container mx-auto">
+          <div className="text-center mb-6 space-y-2">
+            <p className="text-lg font-semibold text-heading font-poppins">
+              Let's automate your business together ✨
+            </p>
+            <a
+              href="#booking"
+              className="text-sm text-muted-foreground hover:text-heading transition-colors font-poppins"
+            >
+              Ready to save hours? Book a free call ↓
+            </a>
+          </div>
+
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <img src={logo} alt="Glogicraft Logo" className="h-8 w-8" />
