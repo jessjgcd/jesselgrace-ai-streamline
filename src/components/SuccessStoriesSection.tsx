@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Star, Trophy, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Trophy, ArrowRight, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const stories = [
   {
@@ -9,6 +9,8 @@ const stories = [
     solution: "Complete funnel overhaul with automated lead routing",
     results: "70% reduction in manual work",
     metric: "Saved ~$4,800/month in labor",
+    metricNumber: "70%",
+    metricLabel: "Less Manual Work",
     tools: "GHL, n8n",
     icon: "🚀",
   },
@@ -18,6 +20,8 @@ const stories = [
     solution: "AI-powered content automation and scheduling",
     results: "200% increase in content output",
     metric: "3x faster turnaround",
+    metricNumber: "200%",
+    metricLabel: "More Content",
     tools: "OpenAI, n8n",
     icon: "🎙️",
   },
@@ -27,6 +31,8 @@ const stories = [
     solution: "Multi-channel lead engine with intelligent GHL lead scoring",
     results: "50% more qualified leads",
     metric: "2x pipeline value",
+    metricNumber: "50%",
+    metricLabel: "More Leads",
     tools: "GHL, Make.com",
     icon: "🛒",
   },
@@ -36,6 +42,8 @@ const stories = [
     solution: "Automated project management and onboarding",
     results: "Delays reduced from days to hours",
     metric: "40% better campaign ROI",
+    metricNumber: "40%",
+    metricLabel: "Better ROI",
     tools: "GHL, n8n",
     icon: "📈",
   },
@@ -45,6 +53,8 @@ const stories = [
     solution: "Automated membership delivery and welcome sequences via GHL",
     results: "60% faster onboarding",
     metric: "15+ hours/week saved",
+    metricNumber: "60%",
+    metricLabel: "Faster Onboarding",
     tools: "GHL, Make.com",
     icon: "⚡",
   },
@@ -54,6 +64,8 @@ const stories = [
     solution: "Real-time GHL tracking dashboards with automated alerts",
     results: "40% better campaign ROI",
     metric: "Data-driven decisions in minutes",
+    metricNumber: "40%",
+    metricLabel: "Better Campaign ROI",
     tools: "GHL, n8n",
     icon: "🎯",
   },
@@ -63,9 +75,20 @@ const stories = [
     solution: "End-to-end n8n workflows connecting CRM, Sheets, and Slack",
     results: "Zero sync errors",
     metric: "10–18 hours/week eliminated",
+    metricNumber: "0",
+    metricLabel: "Sync Errors",
     tools: "n8n, Make.com",
     icon: "🔗",
   },
+];
+
+const highlightMetrics = [
+  { number: "70%", label: "Reduction in Manual Tasks" },
+  { number: "200%", label: "Content Output Increase" },
+  { number: "$4.8K", label: "Monthly Labor Savings" },
+  { number: "15+", label: "Hours Saved Per Week" },
+  { number: "99%+", label: "Workflow Uptime" },
+  { number: "2×", label: "Pipeline Value Growth" },
 ];
 
 export const SuccessStoriesSection = () => {
@@ -122,6 +145,23 @@ export const SuccessStoriesSection = () => {
           </p>
         </motion.div>
 
+        {/* Highlight Metrics Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-14">
+          {highlightMetrics.map((m, i) => (
+            <motion.div
+              key={m.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="text-center p-4 rounded-2xl bg-card border border-border/50 hover:shadow-[0_4px_20px_-4px_hsl(var(--primary)/0.3)] transition-shadow"
+            >
+              <p className="text-2xl md:text-3xl font-bold text-gradient">{m.number}</p>
+              <p className="text-xs text-muted-foreground mt-1">{m.label}</p>
+            </motion.div>
+          ))}
+        </div>
+
         {/* Carousel */}
         <div className="relative">
           {/* Arrows */}
@@ -154,36 +194,28 @@ export const SuccessStoriesSection = () => {
                   className="px-3 shrink-0"
                   style={{ width: `${100 / itemsPerView}%` }}
                 >
-                  <div className="group p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.35)] h-full flex flex-col">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-3xl">{story.icon}</span>
-                      <div className="flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="h-4 w-4 text-primary fill-primary"
-                          />
-                        ))}
-                      </div>
+                  <div className="group p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.35)] h-full flex flex-col relative overflow-hidden">
+                    {/* Quote icon */}
+                    <Quote className="absolute top-4 right-4 h-8 w-8 text-primary/15" />
+
+                    {/* Big metric number */}
+                    <p className="text-4xl font-bold text-gradient mb-1">{story.metricNumber}</p>
+                    <p className="text-xs text-muted-foreground font-medium mb-4">{story.metricLabel}</p>
+
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-2xl">{story.icon}</span>
+                      <h3 className="font-semibold text-foreground text-sm">
+                        {story.client}
+                      </h3>
                     </div>
 
-                    <h3 className="font-semibold text-foreground mb-3">
-                      {story.client}
-                    </h3>
-
-                    <div className="space-y-3 text-sm flex-1">
-                      <div>
-                        <p className="text-muted-foreground font-medium">Challenge:</p>
-                        <p className="text-foreground/80">{story.challenge}</p>
-                      </div>
-
-                      <div>
-                        <p className="text-muted-foreground font-medium">Solution:</p>
-                        <p className="text-foreground/80">{story.solution}</p>
-                      </div>
+                    <div className="space-y-2 text-sm flex-1">
+                      <p className="text-muted-foreground italic text-xs leading-relaxed">
+                        "{story.challenge} → {story.solution}"
+                      </p>
 
                       <div className="p-3 rounded-xl bg-primary/10">
-                        <p className="font-semibold text-foreground">
+                        <p className="font-semibold text-foreground text-sm">
                           ✨ {story.results}
                         </p>
                         <p className="text-xs text-muted-foreground mt-1">
