@@ -112,11 +112,24 @@ export const ServicesSection = () => {
                 {service.description}
               </p>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-primary/20 text-foreground">
-                    🛠️ {service.tools}
-                  </span>
+              <div className="space-y-3 mb-4">
+                <div className="flex items-center gap-3">
+                  {service.tools.map((tool) => (
+                    <div
+                      key={tool}
+                      className="w-8 h-8 rounded-lg bg-background/80 border border-border/50 flex items-center justify-center hover:shadow-[0_0_12px_hsl(var(--primary)/0.5)] transition-shadow duration-300 cursor-pointer"
+                      title={tool}
+                    >
+                      <img
+                        src={toolLogos[tool]}
+                        alt={`${tool} logo`}
+                        width="24"
+                        height="24"
+                        loading="eager"
+                        className="object-contain"
+                      />
+                    </div>
+                  ))}
                 </div>
                 <div className="flex items-center gap-2 text-xs">
                   <span className="px-2 py-1 rounded-full bg-secondary/50 text-foreground">
