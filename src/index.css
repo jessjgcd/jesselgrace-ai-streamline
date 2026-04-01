@@ -142,10 +142,18 @@
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    background: linear-gradient(135deg, hsl(350 70% 65%) 0%, hsl(280 60% 60%) 50%, hsl(250 67% 65%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .bg-section-tint {
+    background: linear-gradient(180deg, #fdf4ff 0%, hsl(var(--card)) 100%);
+  }
+
+  .dark .bg-section-tint {
+    background: var(--gradient-card);
   }
 
   .glass {

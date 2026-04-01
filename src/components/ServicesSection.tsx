@@ -61,7 +61,7 @@ const services = [
 ];
 export const ServicesSection = () => {
   return (
-    <section id="services" className="py-20 px-4 bg-card">
+    <section id="services" className="py-20 px-4 bg-section-tint">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
