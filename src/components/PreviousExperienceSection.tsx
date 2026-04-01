@@ -86,7 +86,7 @@ export const PreviousExperienceSection = () => {
   const [selectedExp, setSelectedExp] = useState<Experience | null>(null);
 
   return (
-    <section className="py-20 px-4 bg-gradient-hero">
+    <section className="py-20 px-4 bg-section-tint">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
