@@ -23,8 +23,10 @@ export const HeroSection = () => {
               transition={{ delay: 0.2 }}
               className="inline-block"
             >
-              <span className="px-4 py-2 rounded-full bg-primary/30 text-foreground text-sm font-medium">
-                Jessel Grace Diagbel | ⭐ AI Automation Specialist
+              <span className="px-5 py-2.5 my-2 rounded-full bg-primary/30 text-foreground text-sm font-medium inline-flex flex-col sm:flex-row items-center gap-0.5 sm:gap-1 text-center">
+                <span>Jessel Grace Diagbel</span>
+                <span className="hidden sm:inline">|</span>
+                <span className="text-xs sm:text-sm">⭐ AI Automation Specialist</span>
               </span>
             </motion.div>
 
