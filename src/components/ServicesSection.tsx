@@ -1,12 +1,20 @@
 import { motion } from "framer-motion";
 import { Bot, Users, FileText, BarChart3, TrendingUp, FolderKanban, ArrowRight } from "lucide-react";
 
+const toolLogos: Record<string, string> = {
+  "n8n": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/N8n-logo-new.svg/1280px-N8n-logo-new.svg.png",
+  "Make.com": "https://images.seeklogo.com/logo-png/46/2/make-logo-png_seeklogo-464017.png",
+  "GHL": "https://assets.cdn.filesafe.space/7bj9GLcAHEyZKIzRsdI1/media/66dcec8d84ef295b39eb6ee9.png",
+  "Zapier": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zapier_logo.svg/1280px-Zapier_logo.svg.png",
+  "OpenAI": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/3840px-OpenAI_Logo.svg.png",
+};
+
 const services = [
   {
     icon: Bot,
     title: "AI Agents & Workflows",
     description: "Custom funnels that handle leads and decisions automatically",
-    tools: "n8n, Make.com, GHL",
+    tools: ["n8n", "Make.com", "GHL"],
     benefit: "24/7 automated operations",
     color: "pastel-pink",
   },
@@ -14,7 +22,7 @@ const services = [
     icon: Users,
     title: "Lead Generation",
     description: "Multi-channel systems with intelligent lead nurturing",
-    tools: "GHL, Zapier, n8n",
+    tools: ["GHL", "Zapier", "n8n"],
     benefit: "50% faster lead qualification",
     color: "pastel-blue",
   },
@@ -22,7 +30,7 @@ const services = [
     icon: FileText,
     title: "Content Automation",
     description: "Dynamic pipelines for blogs, emails, and social content",
-    tools: "OpenAI, Make.com, n8n",
+    tools: ["OpenAI", "Make.com", "n8n"],
     benefit: "3x content output",
     color: "pastel-lavender",
   },
@@ -30,7 +38,7 @@ const services = [
     icon: BarChart3,
     title: "Marketing Automation",
     description: "Campaign workflows with real-time performance tracking",
-    tools: "GHL, Zapier, n8n",
+    tools: ["GHL", "Zapier", "n8n"],
     benefit: "40% better ROI",
     color: "pastel-pink",
   },
@@ -38,7 +46,7 @@ const services = [
     icon: TrendingUp,
     title: "Sales Automation",
     description: "Funnel optimizations that close deals while you sleep",
-    tools: "GHL, Make.com, n8n",
+    tools: ["GHL", "Make.com", "n8n"],
     benefit: "2x conversion rate",
     color: "pastel-blue",
   },
@@ -46,12 +54,11 @@ const services = [
     icon: FolderKanban,
     title: "Project Management",
     description: "Coordinated onboarding, tasks, and team workflows",
-    tools: "Make.com, Zapier, n8n",
+    tools: ["Make.com", "Zapier", "n8n"],
     benefit: "60% time saved",
     color: "pastel-lavender",
   },
 ];
-
 export const ServicesSection = () => {
   return (
     <section id="services" className="py-20 px-4 bg-card">
@@ -105,11 +112,24 @@ export const ServicesSection = () => {
                 {service.description}
               </p>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="px-2 py-1 rounded-full bg-primary/20 text-foreground">
-                    🛠️ {service.tools}
-                  </span>
+              <div className="space-y-3 mb-4">
+                <div className="flex items-center gap-3">
+                  {service.tools.map((tool) => (
+                    <div
+                      key={tool}
+                      className="w-8 h-8 rounded-lg bg-background/80 border border-border/50 flex items-center justify-center hover:shadow-[0_0_12px_hsl(var(--primary)/0.5)] transition-shadow duration-300 cursor-pointer"
+                      title={tool}
+                    >
+                      <img
+                        src={toolLogos[tool]}
+                        alt={`${tool} logo`}
+                        width="24"
+                        height="24"
+                        loading="eager"
+                        className="object-contain"
+                      />
+                    </div>
+                  ))}
                 </div>
                 <div className="flex items-center gap-2 text-xs">
                   <span className="px-2 py-1 rounded-full bg-secondary/50 text-foreground">
