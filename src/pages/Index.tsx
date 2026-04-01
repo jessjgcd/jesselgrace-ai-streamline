@@ -13,6 +13,7 @@ import { ProcessSection } from "@/components/ProcessSection";
 import { ContactSection } from "@/components/ContactSection";
 import { CalendarBookingSection } from "@/components/CalendarBookingSection";
 import { Footer } from "@/components/Footer";
+import { GradientDivider } from "@/components/GradientDivider";
 
 const Index = () => {
   return (
@@ -20,17 +21,29 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <GradientDivider />
         <IntroVideoSection />
+        <GradientDivider />
         <ProjectsSection />
+        <GradientDivider />
         <PreviousExperienceSection />
+        <GradientDivider />
         <AboutSection />
+        <GradientDivider />
         <ToolsSection />
+        <GradientDivider />
         <ConsultationSection />
+        <GradientDivider />
         <ServicesSection />
+        <GradientDivider />
         <ROICalculator />
+        <GradientDivider />
         <SuccessStoriesSection />
+        <GradientDivider />
         <ProcessSection />
+        <GradientDivider />
         <ContactSection />
+        <GradientDivider />
         <CalendarBookingSection />
       </main>
       <Footer />
