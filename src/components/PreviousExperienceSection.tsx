@@ -25,15 +25,14 @@ interface Experience {
 const experiences: Experience[] = [
   {
     emoji: "⚙️",
-    title: "AI Automation Specialist (n8n, Make, GoHighLevel) | Freelance / Self-Employed",
-    dates: "July 2025 – January 2026",
+    title: "AI Automation Specialist (Freelance / Self-Employed)",
+    dates: "January 2025 – January 2026",
     bullets: [
-      "Built custom n8n workflows → automated lead capture, notifications, data processing",
-      "Integrated Make to sync CRMs, email, Google Sheets in real-time",
-      "Set up GoHighLevel automations for pipelines, SMS/email, membership delivery",
-      "Added retry logic, error handling, logging → 99%+ uptime",
-      "Delivered documentation + handover training",
-      "Results: Saved clients 15–25 hours/week, reduced errors by 80%",
+      "Designed and deployed custom n8n workflows for intelligent lead capture, real-time notifications, and automated client data processing — significantly reducing manual tasks",
+      "Integrated Make.com, Zapier, and GoHighLevel to sync CRMs, email platforms, Google Sheets, and other business tools, streamlining data flow and operations",
+      "Built high-converting GoHighLevel sales funnels with automated SMS/email follow-up sequences and membership delivery systems",
+      "Implemented advanced error handling, retry logic, logging, and comprehensive documentation to ensure reliable, production-ready automations",
+      "Provided hands-on client training and detailed handover documentation, enabling clients to independently manage and scale their systems",
     ],
     modal: {
       problem: "Clients were spending 20+ hours/week on manual lead processing, data entry, and follow-ups across disconnected tools — leading to missed leads and frequent errors.",
@@ -47,94 +46,29 @@ const experiences: Experience[] = [
     },
   },
   {
-    emoji: "🔄",
-    title: "Project-Based Funnel & CRM Automation Specialist | Freelance",
-    dates: "April 2025 – May 2025",
-    bullets: [
-      "Designed high-converting GoHighLevel funnels with SMS/email sequences",
-      "Built n8n workflows for lead routing, follow-ups, notifications",
-      "Added error-handling + client training",
-      "Results: Increased lead-to-sale conversion by 40%, saved ~12 hours/week on manual follow-up",
-    ],
-    modal: {
-      problem: "Client's sales funnel had no automation — leads went cold due to slow manual follow-up, and the team spent hours each week on repetitive outreach.",
-      solution: "Designed GoHighLevel funnels with automated SMS/email sequences and n8n workflows for intelligent lead routing and instant follow-ups.",
-      impact: [
-        "Increased lead-to-sale conversion by 40%",
-        "Saved ~12 hours/week on manual follow-up",
-        "Zero leads lost due to delayed response",
-      ],
-    },
-  },
-  {
-    emoji: "📈",
-    title: "GoHighLevel Automation Specialist | Project-Based",
-    dates: "January 2025 – August 2025",
-    bullets: [
-      "Built automated lead capture + nurturing pipelines in GoHighLevel",
-      "Created CRM workflows to track and score leads",
-      "Delivered walkthroughs + documentation",
-      "Results: 60% faster lead response time, 35% more qualified opportunities",
-    ],
-    modal: {
-      problem: "Leads were slipping through the cracks with no structured pipeline or scoring — the team couldn't tell which leads were hot and response times were too slow.",
-      solution: "Set up GoHighLevel funnels with automated pipelines for lead capture, scoring, and nurturing. Built CRM workflows for tracking and prioritization.",
-      impact: [
-        "60% faster lead response time",
-        "35% more qualified opportunities in pipeline",
-        "Full documentation for client self-service",
-      ],
-    },
-  },
-  {
-    emoji: "🤖",
-    title: "Project-Based AI Workflow Automation | Remote",
-    dates: "January 2025 – March 2025",
-    bullets: [
-      "Developed n8n workflows for lead capture, notifications, CRM sync",
-      "Integrated Make to connect Google Sheets, Slack, client tools",
-      "Provided step-by-step guides + documentation",
-      "Results: Eliminated 10–18 hours/week of manual data entry, zero sync errors",
-    ],
-    modal: {
-      problem: "Client's team was manually copying data between Google Sheets, Slack, and their CRM — wasting over 10 hours/week and introducing constant sync errors.",
-      solution: "Developed n8n workflows and Make integrations to automate data flow between all platforms with real-time sync and error alerts.",
-      impact: [
-        "Eliminated 10–18 hours/week of manual data entry",
-        "Zero sync errors after deployment",
-        "Step-by-step documentation for team adoption",
-      ],
-    },
-  },
-  {
     emoji: "🔍",
-    title: "SEO & Content Optimization Specialist | Freelance",
+    title: "SEO & Content Optimization Specialist (Freelance)",
     dates: "August 2024 – December 2024",
     bullets: [
-      "Performed keyword research, competitor audits, content optimization",
-      "Improved on-page SEO for blogs, landing pages, product pages",
-      "Delivered reports + best-practice guides",
-      "Results: Average 45% increase in organic traffic for optimized pages",
+      "Performed keyword research, competitor analysis, and content audits that improved client search rankings and organic visibility",
     ],
     modal: {
       problem: "Client websites had low organic traffic and poor search rankings due to unoptimized content and missing SEO fundamentals.",
       solution: "Conducted thorough keyword research and competitor analysis, then optimized blog posts, landing pages, and product pages with on-page SEO improvements.",
       impact: [
-        "Average 45% increase in organic traffic",
         "Improved search rankings for target keywords",
+        "Increased organic visibility across optimized pages",
         "Actionable reports and guides for ongoing optimization",
       ],
     },
   },
   {
     emoji: "🎨",
-    title: "Canva Designer & Social Media Specialist | Freelance / Remote",
+    title: "Canva Designer & Social Media Specialist (Freelance / Remote)",
     dates: "February 2024 – August 2024",
     bullets: [
-      "Created branded graphics, ads, templates in Canva Pro",
-      "Built content calendars + posts for Instagram, TikTok, Facebook",
-      "Supplied editable assets + basic marketing support",
-      "Results: Helped clients grow engagement by 2–3x with consistent visuals",
+      "Created professional social media graphics, advertisements, and branded templates using Canva Pro",
+      "Managed content calendars and visual assets across Instagram, TikTok, and Facebook",
     ],
     modal: {
       problem: "Clients lacked consistent branding and were posting irregularly — social media engagement was flat and ad creatives underperformed.",
