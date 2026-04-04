@@ -23,11 +23,9 @@ export const AboutSection = () => {
           </h2>
 
           <div className="text-lg text-muted-foreground leading-relaxed mb-12 space-y-4 text-left sm:text-center">
-            <p>I'm <strong className="text-foreground">Jessel Grace Diagbel</strong>, an AI Automation Specialist.</p>
             <p>I help business owners and teams break free from repetitive manual work by building smart, reliable AI-powered systems.</p>
-            <p>Using <strong className="text-foreground">n8n, Make.com, GoHighLevel, and OpenAI</strong>, I design custom automations for lead generation, CRM synchronization, content creation, email management, and full sales pipelines.</p>
-            <p>My approach combines technical precision with real business understanding — creating solutions that are not only powerful but also easy to manage and scale.</p>
-            <p>If you're tired of spending hours on tasks that could run automatically, I'd love to help you build systems that give you back your time and drive real growth.</p>
+            <p>Using <span className="text-primary font-semibold">n8n</span>, <span className="text-primary font-semibold">Make.com</span>, <span className="text-primary font-semibold">GoHighLevel</span>, and <span className="text-primary font-semibold">OpenAI</span>, I design custom automations for lead generation, CRM synchronization, content creation, email management, and sales pipelines.</p>
+            <p>My goal is simple: deliver powerful yet easy-to-manage solutions that save you time and drive real growth.</p>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-6">
