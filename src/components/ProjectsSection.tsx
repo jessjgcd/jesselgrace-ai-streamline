@@ -11,9 +11,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import projectBanner from "@/assets/project-banner.png";
-import projectBannerMobile from "@/assets/project-banner-mobile.webp";
 import sora2Workflow from "@/assets/sora2-workflow.png";
-import sora2WorkflowMobile from "@/assets/sora2-workflow-mobile.webp";
 
 const comingSoonProjects = [
   {
@@ -71,16 +69,11 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
           className="w-full h-48 md:h-64 rounded-2xl mb-12 shadow-lg overflow-hidden"
         >
-          <picture>
-            <source media="(max-width: 767px)" srcSet={projectBannerMobile} type="image/webp" />
-            <source media="(min-width: 768px)" srcSet={projectBanner} />
-            <img
-              src={projectBanner}
-              alt="Featured Projects Banner"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </picture>
+          <img
+            src={projectBanner}
+            alt="Featured Projects Banner"
+            className="w-full h-full object-cover"
+          />
         </motion.div>
 
         {/* Grid */}
@@ -95,16 +88,11 @@ export const ProjectsSection = () => {
           >
             <Card className="overflow-hidden group border-border/50 bg-gradient-to-br from-card to-accent/30 backdrop-blur-sm shadow-md hover:shadow-xl transition-all duration-300 h-full">
               <div className="aspect-video w-full overflow-hidden relative">
-                <picture>
-                  <source media="(max-width: 767px)" srcSet={sora2WorkflowMobile} type="image/webp" />
-                  <source media="(min-width: 768px)" srcSet={sora2Workflow} />
-                  <img
-                    src={sora2Workflow}
-                    alt="Sora 2 AI Video Automation Workflow in n8n"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </picture>
+                <img
+                  src={sora2Workflow}
+                  alt="Sora 2 AI Video Automation Workflow in n8n"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <CardContent className="p-5 pt-4">
@@ -201,16 +189,11 @@ export const ProjectsSection = () => {
               {/* Left: Media */}
               <div className="space-y-4">
                 <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
-                  <picture>
-                    <source media="(max-width: 767px)" srcSet={sora2WorkflowMobile} type="image/webp" />
-                    <source media="(min-width: 768px)" srcSet={sora2Workflow} />
-                    <img
-                      src={sora2Workflow}
-                      alt="Sora 2 AI Video Automation Workflow"
-                      className="w-full object-cover"
-                      loading="lazy"
-                    />
-                  </picture>
+                  <img
+                    src={sora2Workflow}
+                    alt="Sora 2 AI Video Automation Workflow"
+                    className="w-full object-cover"
+                  />
                 </div>
                 <div className="aspect-video rounded-xl overflow-hidden shadow-lg border border-border/50">
                   <iframe
