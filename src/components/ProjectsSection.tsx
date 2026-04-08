@@ -11,7 +11,9 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import projectBanner from "@/assets/project-banner.png";
+import projectBannerMobile from "@/assets/project-banner-mobile.webp";
 import sora2Workflow from "@/assets/sora2-workflow.png";
+import sora2WorkflowMobile from "@/assets/sora2-workflow-mobile.webp";
 
 const comingSoonProjects = [
   {
