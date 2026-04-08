@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Cog, Star } from "lucide-react";
 import headshot from "@/assets/headshot.png";
+import headshotMobile from "@/assets/headshot-mobile.webp";
 
 export const HeroSection = () => {
   return (
