@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Cog, Star } from "lucide-react";
 import headshot from "@/assets/headshot.png";
+import headshotMobile from "@/assets/headshot-mobile.webp";
 
 export const HeroSection = () => {
   return (
@@ -86,13 +87,19 @@ export const HeroSection = () => {
             className="relative flex justify-center lg:justify-end"
           >
             {/* Clean headshot image - no decorations */}
-            <motion.img
-              src={headshot}
-              alt="Jessel Grace Diagbel"
-              className="w-72 h-72 md:w-96 md:h-96 rounded-3xl object-cover border-2 border-white/10 shadow-[0_8px_30px_rgba(255,255,255,0.1)] dark:border-[#1E3A5F]/60 dark:shadow-[0_8px_30px_rgba(30,58,95,0.3)]"
+            <motion.picture
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
+            >
+              <source media="(max-width: 767px)" srcSet={headshotMobile} type="image/webp" />
+              <source media="(min-width: 768px)" srcSet={headshot} />
+              <img
+                src={headshot}
+                alt="Jessel Grace Diagbel"
+                className="w-72 h-72 md:w-96 md:h-96 rounded-3xl object-cover border-2 border-white/10 shadow-[0_8px_30px_rgba(255,255,255,0.1)] dark:border-[#1E3A5F]/60 dark:shadow-[0_8px_30px_rgba(30,58,95,0.3)]"
+                loading="eager"
+              />
+            </motion.picture>
           </motion.div>
         </div>
       </div>

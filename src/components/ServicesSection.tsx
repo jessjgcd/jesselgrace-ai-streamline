@@ -125,7 +125,7 @@ export const ServicesSection = () => {
                         alt={`${tool} logo`}
                         width="24"
                         height="24"
-                        loading="eager"
+                        loading="lazy"
                         className="object-contain"
                       />
                     </div>
