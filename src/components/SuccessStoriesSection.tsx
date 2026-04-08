@@ -168,7 +168,7 @@ export const SuccessStoriesSection = () => {
           <button
             onClick={prev}
             disabled={current === 0}
-            className="absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            className="absolute left-0 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-card border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Previous"
           >
             <ChevronLeft className="h-5 w-5" />
@@ -176,7 +176,7 @@ export const SuccessStoriesSection = () => {
           <button
             onClick={next}
             disabled={current >= maxIndex}
-            className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-card border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            className="absolute right-0 sm:-right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-card border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Next"
           >
             <ChevronRight className="h-5 w-5" />
