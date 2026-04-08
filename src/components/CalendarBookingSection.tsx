@@ -101,9 +101,9 @@ export const CalendarBookingSection = () => {
               </h3>
             </div>
 
-            <div className="p-6 md:p-8">
+            <div className="p-4 sm:p-6 md:p-8">
               {/* Info Cards */}
-              <div className="grid md:grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
                 <div className="flex items-center gap-3 p-4 bg-secondary/30 rounded-xl">
                   <Clock className="h-5 w-5 text-primary" />
                   <div>
@@ -131,7 +131,7 @@ export const CalendarBookingSection = () => {
               <div className="text-center py-12">
                 <button
                   onClick={openCalendly}
-                  className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-button rounded-full text-primary-foreground font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-gradient-button rounded-full text-primary-foreground font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
                 >
                   <Calendar className="h-6 w-6" />
                   Pick a Time Now

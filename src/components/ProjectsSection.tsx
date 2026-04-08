@@ -174,7 +174,7 @@ export const ProjectsSection = () => {
 
       {/* === Case Study Modal === */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 mx-2 sm:mx-auto">
           <div className="p-6 md:p-8">
             <DialogHeader className="mb-6">
               <DialogTitle className="text-2xl md:text-3xl font-bold text-heading">
