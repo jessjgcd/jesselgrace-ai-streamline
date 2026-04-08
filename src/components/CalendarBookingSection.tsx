@@ -131,7 +131,7 @@ export const CalendarBookingSection = () => {
               <div className="text-center py-12">
                 <button
                   onClick={openCalendly}
-                  className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-button rounded-full text-primary-foreground font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-gradient-button rounded-full text-primary-foreground font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
                 >
                   <Calendar className="h-6 w-6" />
                   Pick a Time Now
