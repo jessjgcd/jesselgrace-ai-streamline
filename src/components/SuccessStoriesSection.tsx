@@ -182,7 +182,7 @@ export const SuccessStoriesSection = () => {
             <ChevronRight className="h-5 w-5" />
           </button>
 
-          <div className="overflow-hidden">
+          <div className="overflow-hidden px-5 sm:px-0">
             <motion.div
               className="flex"
               animate={{ x: `${-current * (100 / itemsPerView)}%` }}
