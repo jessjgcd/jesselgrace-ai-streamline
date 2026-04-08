@@ -201,11 +201,16 @@ export const ProjectsSection = () => {
               {/* Left: Media */}
               <div className="space-y-4">
                 <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
-                  <img
-                    src={sora2Workflow}
-                    alt="Sora 2 AI Video Automation Workflow"
-                    className="w-full object-cover"
-                  />
+                  <picture>
+                    <source media="(max-width: 767px)" srcSet={sora2WorkflowMobile} type="image/webp" />
+                    <source media="(min-width: 768px)" srcSet={sora2Workflow} />
+                    <img
+                      src={sora2Workflow}
+                      alt="Sora 2 AI Video Automation Workflow"
+                      className="w-full object-cover"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
                 <div className="aspect-video rounded-xl overflow-hidden shadow-lg border border-border/50">
                   <iframe

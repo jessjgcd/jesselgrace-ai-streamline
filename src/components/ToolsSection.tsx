@@ -97,7 +97,7 @@ export const ToolsSection = () => {
                   alt={`${tool.name} logo`}
                   width="65"
                   height="65"
-                  loading="eager"
+                  loading="lazy"
                   className="object-contain grayscale hover:grayscale-0 dark:grayscale-0 transition-all duration-300"
                 />
                 <p className="text-center text-xs font-medium text-muted-foreground mt-2">
