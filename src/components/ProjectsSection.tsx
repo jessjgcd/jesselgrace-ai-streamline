@@ -71,11 +71,16 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
           className="w-full h-48 md:h-64 rounded-2xl mb-12 shadow-lg overflow-hidden"
         >
-          <img
-            src={projectBanner}
-            alt="Featured Projects Banner"
-            className="w-full h-full object-cover"
-          />
+          <picture>
+            <source media="(max-width: 767px)" srcSet={projectBannerMobile} type="image/webp" />
+            <source media="(min-width: 768px)" srcSet={projectBanner} />
+            <img
+              src={projectBanner}
+              alt="Featured Projects Banner"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </picture>
         </motion.div>
 
         {/* Grid */}
