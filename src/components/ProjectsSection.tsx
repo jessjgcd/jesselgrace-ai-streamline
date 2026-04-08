@@ -95,11 +95,16 @@ export const ProjectsSection = () => {
           >
             <Card className="overflow-hidden group border-border/50 bg-gradient-to-br from-card to-accent/30 backdrop-blur-sm shadow-md hover:shadow-xl transition-all duration-300 h-full">
               <div className="aspect-video w-full overflow-hidden relative">
-                <img
-                  src={sora2Workflow}
-                  alt="Sora 2 AI Video Automation Workflow in n8n"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                <picture>
+                  <source media="(max-width: 767px)" srcSet={sora2WorkflowMobile} type="image/webp" />
+                  <source media="(min-width: 768px)" srcSet={sora2Workflow} />
+                  <img
+                    src={sora2Workflow}
+                    alt="Sora 2 AI Video Automation Workflow in n8n"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               <CardContent className="p-5 pt-4">
