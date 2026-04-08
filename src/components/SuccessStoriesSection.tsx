@@ -146,7 +146,7 @@ export const SuccessStoriesSection = () => {
         </motion.div>
 
         {/* Highlight Metrics Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-14">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-14">
           {highlightMetrics.map((m, i) => (
             <motion.div
               key={m.label}

@@ -3,7 +3,7 @@ import logo from "@/assets/logo.png";
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border" style={{ backgroundColor: "#fdf4ff" }}>
+    <footer className="border-t border-border pb-20 sm:pb-0" style={{ backgroundColor: "#fdf4ff" }}>
       <div className="py-8 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-6 space-y-2">
@@ -18,7 +18,7 @@ export const Footer = () => {
             </a>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
             <div className="flex items-center gap-2">
               <img src={logo} alt="Glogicraft Logo" className="h-8 w-8" />
               <span className="font-poppins text-sm text-muted-foreground">
