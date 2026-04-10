@@ -43,7 +43,7 @@ export const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
+          <a href="#home" className="flex items-center gap-2" aria-label="Glogicraft Home">
             <img src={logo} alt="Glogicraft Logo" className="h-10 w-10" />
             <span className="font-poppins text-sm font-medium text-foreground">
               Glogicraft

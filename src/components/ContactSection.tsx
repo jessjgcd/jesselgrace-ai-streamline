@@ -67,10 +67,11 @@ export const ContactSection = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="contact-name" className="block text-sm font-medium text-foreground mb-2">
                   Your Name
                 </label>
                 <Input
+                  id="contact-name"
                   type="text"
                   placeholder="John Doe"
                   value={formData.name}
@@ -83,10 +84,11 @@ export const ContactSection = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="contact-email" className="block text-sm font-medium text-foreground mb-2">
                   Email Address
                 </label>
                 <Input
+                  id="contact-email"
                   type="email"
                   placeholder="john@example.com"
                   value={formData.email}
@@ -99,10 +101,11 @@ export const ContactSection = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="contact-message" className="block text-sm font-medium text-foreground mb-2">
                   Message
                 </label>
                 <Textarea
+                  id="contact-message"
                   placeholder="Tell me about your project..."
                   value={formData.message}
                   onChange={(e) =>
@@ -201,6 +204,7 @@ export const ContactSection = () => {
                   href="https://facebook.com/jesselgracediagbel"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Facebook"
                   className="w-12 h-12 rounded-full bg-pastel-blue flex items-center justify-center hover:scale-110 transition-transform"
                 >
                   <Facebook className="h-5 w-5 text-foreground dark:text-white" />
@@ -209,6 +213,7 @@ export const ContactSection = () => {
                   href="https://linkedin.com/in/jesselgracediagbel"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn"
                   className="w-12 h-12 rounded-full bg-pastel-lavender flex items-center justify-center hover:scale-110 transition-transform"
                 >
                   <Linkedin className="h-5 w-5 text-foreground dark:text-white" />
@@ -217,6 +222,7 @@ export const ContactSection = () => {
                   href="https://instagram.com/jesselgracediagbel"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Instagram"
                   className="w-12 h-12 rounded-full bg-pastel-pink flex items-center justify-center hover:scale-110 transition-transform"
                 >
                   <Instagram className="h-5 w-5 text-foreground dark:text-white" />
@@ -225,6 +231,7 @@ export const ContactSection = () => {
                   href="https://twitter.com/jesselgracediagbel"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Twitter"
                   className="w-12 h-12 rounded-full bg-pastel-blue flex items-center justify-center hover:scale-110 transition-transform"
                 >
                   <Twitter className="h-5 w-5 text-foreground dark:text-white" />

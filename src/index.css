@@ -178,6 +178,66 @@
   }
 }
 
+/* ===== Mobile-only accessibility improvements ===== */
+@media (max-width: 767px) {
+  /* Minimum 48px touch targets for all interactive elements */
+  a, button, [role="button"], input, textarea, select,
+  [role="slider"], summary {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Ensure slider thumbs are large enough */
+  [role="slider"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Spacing between adjacent interactive elements */
+  nav a + a,
+  .flex > a + a,
+  .flex > button + button,
+  .flex.gap-4 > a,
+  .flex.gap-6 > a {
+    margin-top: 4px;
+  }
+
+  /* Carousel dot buttons need larger tap targets */
+  button[aria-label^="Go to slide"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px;
+  }
+
+  /* Improve muted-foreground contrast on mobile for WCAG AA */
+  .text-muted-foreground {
+    color: hsl(0 0% 28%) !important;
+  }
+
+  .dark .text-muted-foreground {
+    color: hsl(250 20% 78%) !important;
+  }
+
+  /* Ensure input placeholders have sufficient contrast */
+  ::placeholder {
+    color: hsl(0 0% 40%) !important;
+  }
+
+  .dark ::placeholder {
+    color: hsl(250 15% 60%) !important;
+  }
+
+  /* Footer links need better contrast on pink bg */
+  footer .text-muted-foreground {
+    color: hsl(0 0% 25%) !important;
+  }
+
+  footer a.text-muted-foreground,
+  footer a:not([class*="text-"]) {
+    color: hsl(0 0% 25%) !important;
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
