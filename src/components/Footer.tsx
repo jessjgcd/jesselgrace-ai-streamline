@@ -27,10 +27,10 @@ export const Footer = () => {
             </div>
 
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-foreground transition-colors">
+              <a href="#" className="hover:text-foreground transition-colors" aria-label="Privacy Policy">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-foreground transition-colors">
+              <a href="#" className="hover:text-foreground transition-colors" aria-label="Terms of Service">
                 Terms of Service
               </a>
             </div>
