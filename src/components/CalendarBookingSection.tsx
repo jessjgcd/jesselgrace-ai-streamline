@@ -1,61 +1,11 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, Globe, Video } from "lucide-react";
-import { useEffect } from "react";
+import { useState } from "react";
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initBadgeWidget: (opts: Record<string, unknown>) => void;
-      showPopupWidget: (url: string) => void;
-    };
-  }
-}
+const GOOGLE_CALENDAR_URL =
+  "https://calendar.google.com/calendar/embed?height=550&wkst=1&ctz=Asia%2FManila&showPrint=0&src=amRpYWdiZWw4QGdtYWlsLmNvbQ&color=%23039be5";
 
 export const CalendarBookingSection = () => {
-  useEffect(() => {
-    // Load Calendly CSS
-    if (!document.querySelector('link[href*="calendly"]')) {
-      const link = document.createElement("link");
-      link.href = "https://assets.calendly.com/assets/external/widget.css";
-      link.rel = "stylesheet";
-      document.head.appendChild(link);
-    }
-
-    // Init badge widget once script is ready
-    const initBadge = () => {
-      if (window.Calendly) {
-        window.Calendly.initBadgeWidget({
-          url: "https://calendly.com/jdiagbel8/30min",
-          text: "Book Free Call",
-          color: "#d946ef",
-          textColor: "#ffffff",
-          branding: false,
-        });
-      }
-    };
-
-    if (window.Calendly) {
-      initBadge();
-    } else {
-      // Wait for the script loaded in index.html
-      const interval = setInterval(() => {
-        if (window.Calendly) {
-          initBadge();
-          clearInterval(interval);
-        }
-      }, 200);
-      return () => clearInterval(interval);
-    }
-  }, []);
-
-  const openCalendly = () => {
-    if (window.Calendly) {
-      window.Calendly.showPopupWidget(
-        "https://calendly.com/jdiagbel8/30min?background_color=fdf4ff&text_color=291b1b&primary_color=d946ef"
-      );
-    }
-  };
-
   return (
     <section id="booking" className="py-20 px-4 bg-gradient-hero">
       <div className="container mx-auto">
@@ -122,27 +72,25 @@ export const CalendarBookingSection = () => {
                   <Globe className="h-5 w-5 text-primary" />
                   <div>
                     <p className="font-medium text-foreground">Timezone</p>
-                    <p className="text-sm text-muted-foreground">Auto-detected</p>
+                    <p className="text-sm text-muted-foreground">Asia/Manila</p>
                   </div>
                 </div>
               </div>
 
-              {/* CTA to open popup */}
-              <div className="text-center py-12">
-                <button
-                  onClick={openCalendly}
-                  className="inline-flex items-center gap-2 px-8 py-4 sm:px-10 sm:py-5 bg-gradient-button rounded-full text-primary-foreground font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
-                >
-                  <Calendar className="h-6 w-6" />
-                  Pick a Time Now
-                </button>
-                <p className="text-sm text-muted-foreground mt-4">
-                  Or use the floating <span className="text-primary font-medium">"Book Free Call"</span> button at the bottom-right corner.
-                </p>
+              {/* Google Calendar Embed */}
+              <div className="w-full rounded-2xl overflow-hidden border border-border/50">
+                <iframe
+                  src={GOOGLE_CALENDAR_URL}
+                  className="w-full"
+                  style={{ border: 0, minHeight: 450 }}
+                  height="550"
+                  scrolling="no"
+                  title="Google Calendar - Book a call"
+                />
               </div>
 
               {/* What to Expect */}
-              <div className="mt-4 p-6 bg-accent/20 rounded-2xl">
+              <div className="mt-8 p-6 bg-accent/20 rounded-2xl">
                 <h4 className="font-semibold text-foreground mb-3">
                   What to expect in this call:
                 </h4>
@@ -169,6 +117,17 @@ export const CalendarBookingSection = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Floating "Book Free Call" Button */}
+      <a
+        href={GOOGLE_CALENDAR_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 px-5 py-3 bg-primary text-primary-foreground font-semibold rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
+      >
+        <Calendar className="h-5 w-5" />
+        Book Free Call
+      </a>
     </section>
   );
 };
