@@ -236,6 +236,12 @@
   footer a:not([class*="text-"]) {
     color: hsl(0 0% 25%) !important;
   }
+
+  /* Reduce rendering cost for off-screen sections */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
 }
 
 @keyframes float {

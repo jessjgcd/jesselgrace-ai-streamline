@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
+import logoMobile from "@/assets/logo-mobile.webp";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -44,7 +46,7 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2" aria-label="Glogicraft Home">
-            <img src={logo} alt="Glogicraft Logo" className="h-10 w-10" />
+            <ResponsiveImage src={logo} mobileSrc={logoMobile} alt="Glogicraft Logo" className="h-10 w-10" loading="eager" />
             <span className="font-poppins text-sm font-medium text-foreground">
               Glogicraft
             </span>

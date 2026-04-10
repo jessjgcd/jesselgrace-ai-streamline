@@ -1,5 +1,7 @@
 
 import logo from "@/assets/logo.png";
+import logoMobile from "@/assets/logo-mobile.webp";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 export const Footer = () => {
   return (
@@ -20,7 +22,7 @@ export const Footer = () => {
 
           <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
             <div className="flex items-center gap-2">
-              <img src={logo} alt="Glogicraft Logo" className="h-8 w-8" />
+              <ResponsiveImage src={logo} mobileSrc={logoMobile} alt="Glogicraft Logo" className="h-8 w-8" />
               <span className="font-poppins text-sm text-muted-foreground">
                 © 2025 Jessel Grace Diagbel
               </span>
