@@ -1,5 +1,7 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
+import { OldVsNewSection } from "@/components/OldVsNewSection";
+import { FunnelStagesSection } from "@/components/FunnelStagesSection";
 import { IntroVideoSection } from "@/components/IntroVideoSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { PreviousExperienceSection } from "@/components/PreviousExperienceSection";
@@ -10,6 +12,7 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { ROICalculator } from "@/components/ROICalculator";
 import { SuccessStoriesSection } from "@/components/SuccessStoriesSection";
 import { ProcessSection } from "@/components/ProcessSection";
+import { FAQSection } from "@/components/FAQSection";
 import { ContactSection } from "@/components/ContactSection";
 import { CalendarBookingSection } from "@/components/CalendarBookingSection";
 import { Footer } from "@/components/Footer";
@@ -22,6 +25,10 @@ const Index = () => {
       <main>
         <HeroSection />
         <GradientDivider />
+        <OldVsNewSection />
+        <GradientDivider />
+        <FunnelStagesSection />
+        <GradientDivider />
         <IntroVideoSection />
         <GradientDivider />
         <ProjectsSection />
@@ -32,8 +39,6 @@ const Index = () => {
         <GradientDivider />
         <ToolsSection />
         <GradientDivider />
-        <ConsultationSection />
-        <GradientDivider />
         <ServicesSection />
         <GradientDivider />
         <ROICalculator />
@@ -41,6 +46,10 @@ const Index = () => {
         <SuccessStoriesSection />
         <GradientDivider />
         <ProcessSection />
+        <GradientDivider />
+        <ConsultationSection />
+        <GradientDivider />
+        <FAQSection />
         <GradientDivider />
         <ContactSection />
         <GradientDivider />
