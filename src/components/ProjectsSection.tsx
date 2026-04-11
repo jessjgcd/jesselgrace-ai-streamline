@@ -77,6 +77,8 @@ export const ProjectsSection = () => {
             mobileSrc={projectBannerMobile}
             alt="Featured Projects Banner"
             className="w-full h-full object-cover"
+            width={1200}
+            height={256}
           />
         </motion.div>
 
@@ -97,6 +99,8 @@ export const ProjectsSection = () => {
                   mobileSrc={sora2WorkflowMobile}
                   alt="Sora 2 AI Video Automation Workflow in n8n"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  width={640}
+                  height={360}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
@@ -199,6 +203,8 @@ export const ProjectsSection = () => {
                     mobileSrc={sora2WorkflowMobile}
                     alt="Sora 2 AI Video Automation Workflow"
                     className="w-full object-cover"
+                    width={640}
+                    height={360}
                   />
                 </div>
                 <div className="aspect-video rounded-xl overflow-hidden shadow-lg border border-border/50">
