@@ -28,6 +28,7 @@ export const ResponsiveImage = ({
         decoding={loading === "eager" ? "sync" : "async"}
         width={width}
         height={height}
+        style={width && height ? { height: "auto" } : undefined}
       />
     </picture>
   );

@@ -22,7 +22,7 @@ export const Footer = () => {
 
           <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
             <div className="flex items-center gap-2">
-              <ResponsiveImage src={logo} mobileSrc={logoMobile} alt="Glogicraft Logo" className="h-8 w-8" />
+              <ResponsiveImage src={logo} mobileSrc={logoMobile} alt="Glogicraft Logo" className="h-8 w-8" width={32} height={32} />
               <span className="font-poppins text-sm text-muted-foreground">
                 © 2025 Jessel Grace Diagbel
               </span>
