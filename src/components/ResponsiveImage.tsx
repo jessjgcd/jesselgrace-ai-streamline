@@ -4,6 +4,7 @@ interface ResponsiveImageProps {
   alt: string;
   className?: string;
   loading?: "lazy" | "eager";
+  fetchPriority?: "high" | "low" | "auto";
   width?: string | number;
   height?: string | number;
 }
@@ -14,6 +15,7 @@ export const ResponsiveImage = ({
   alt,
   className,
   loading = "lazy",
+  fetchPriority,
   width,
   height,
 }: ResponsiveImageProps) => {
@@ -29,6 +31,8 @@ export const ResponsiveImage = ({
         width={width}
         height={height}
         style={width && height ? { height: "auto" } : undefined}
+        // @ts-ignore - fetchpriority is a valid HTML attribute
+        fetchpriority={fetchPriority}
       />
     </picture>
   );

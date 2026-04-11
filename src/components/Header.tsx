@@ -46,7 +46,7 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2" aria-label="Glogicraft Home">
-            <ResponsiveImage src={logo} mobileSrc={logoMobile} alt="Glogicraft Logo" className="h-10 w-10" loading="eager" width={40} height={40} />
+            <ResponsiveImage src={logo} mobileSrc={logoMobile} alt="Glogicraft Logo" className="h-10 w-10" loading="eager" fetchPriority="high" width={40} height={40} />
             <span className="font-poppins text-sm font-medium text-foreground">
               Glogicraft
             </span>
