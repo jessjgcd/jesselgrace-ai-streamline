@@ -2,34 +2,13 @@ import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
 const tools = [
-  {
-    name: "n8n",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/N8n-logo-new.svg/1280px-N8n-logo-new.svg.png",
-  },
-  {
-    name: "Grok",
-    logo: "https://images.seeklogo.com/logo-png/61/1/grok-logo-png_seeklogo-613403.png",
-  },
-  {
-    name: "Claude",
-    logo: "https://images.seeklogo.com/logo-png/55/2/claude-logo-png_seeklogo-554540.png",
-  },
-  {
-    name: "OpenAI",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/3840px-OpenAI_Logo.svg.png",
-  },
-  {
-    name: "Zapier",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Zapier_logo.svg/1280px-Zapier_logo.svg.png",
-  },
-  {
-    name: "Make",
-    logo: "https://images.seeklogo.com/logo-png/46/2/make-logo-png_seeklogo-464017.png",
-  },
-  {
-    name: "Go High Level",
-    logo: "https://assets.cdn.filesafe.space/7bj9GLcAHEyZKIzRsdI1/media/66dcec8d84ef295b39eb6ee9.png",
-  },
+  { name: "n8n", logo: "/images/n8n.webp" },
+  { name: "Grok", logo: "/images/grok.webp" },
+  { name: "Claude", logo: "/images/claude.webp" },
+  { name: "OpenAI", logo: "/images/openai.webp" },
+  { name: "Zapier", logo: "/images/zapier.webp" },
+  { name: "Make", logo: "/images/make.webp" },
+  { name: "Go High Level", logo: "/images/ghl.webp" },
 ];
 
 export const ToolsSection = () => {
