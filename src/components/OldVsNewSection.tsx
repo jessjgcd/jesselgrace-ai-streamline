@@ -105,3 +105,4 @@ export const OldVsNewSection = () => {
     </section>
   );
 };
+export default OldVsNewSection;

@@ -37,3 +37,4 @@ export const IntroVideoSection = () => {
     </section>
   );
 };
+export default IntroVideoSection;

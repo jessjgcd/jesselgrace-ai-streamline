@@ -112,3 +112,4 @@ export const ToolsSection = () => {
     </section>
   );
 };
+export default ToolsSection;
