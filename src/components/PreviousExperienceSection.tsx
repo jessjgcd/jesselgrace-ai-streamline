@@ -215,3 +215,4 @@ export const PreviousExperienceSection = () => {
     </section>
   );
 };
+export default PreviousExperienceSection;

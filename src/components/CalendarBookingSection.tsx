@@ -131,3 +131,4 @@ export const CalendarBookingSection = () => {
     </section>
   );
 };
+export default CalendarBookingSection;

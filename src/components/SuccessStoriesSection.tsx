@@ -263,3 +263,4 @@ export const SuccessStoriesSection = () => {
     </section>
   );
 };
+export default SuccessStoriesSection;

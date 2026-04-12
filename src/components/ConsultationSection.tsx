@@ -103,3 +103,4 @@ export const ConsultationSection = () => {
     </section>
   );
 };
+export default ConsultationSection;

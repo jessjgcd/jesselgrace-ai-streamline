@@ -99,3 +99,4 @@ export const FunnelStagesSection = () => {
     </section>
   );
 };
+export default FunnelStagesSection;
