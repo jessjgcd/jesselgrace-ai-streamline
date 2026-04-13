@@ -5,7 +5,8 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-screen bg-gradient-hero pt-24 pb-16 px-4 flex items-center"
+      className="bg-gradient-hero pt-24 pb-16 px-4 flex items-center"
+      style={{ minHeight: '100svh' }}
     >
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center space-y-8">
