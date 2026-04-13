@@ -10,8 +10,8 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import projectBanner from "@/assets/project-banner.png";
-import projectBannerMobile from "@/assets/project-banner-mobile.webp";
+import projectBanner from "@/assets/project-banner-new.jpg";
+import projectBannerMobile from "@/assets/project-banner-new.jpg";
 import sora2Workflow from "@/assets/sora2-workflow.png";
 import sora2WorkflowMobile from "@/assets/sora2-workflow-mobile.webp";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
@@ -77,8 +77,9 @@ export const ProjectsSection = () => {
             mobileSrc={projectBannerMobile}
             alt="Featured Projects Banner"
             className="w-full h-full object-cover"
+            loading="lazy"
             width={1200}
-            height={256}
+            height={400}
           />
         </motion.div>
 
