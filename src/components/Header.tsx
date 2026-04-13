@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.png";
-import logoMobile from "@/assets/logo-mobile.webp";
+import logo from "@/assets/logo-96.webp";
+import logoMobile from "@/assets/logo-96.webp";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 const navItems = [
