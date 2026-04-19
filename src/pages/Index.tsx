@@ -10,11 +10,11 @@ const ProjectsSection = lazy(() => import("@/components/ProjectsSection").then(m
 const PreviousExperienceSection = lazy(() => import("@/components/PreviousExperienceSection").then(m => ({ default: m.PreviousExperienceSection })));
 const AboutSection = lazy(() => import("@/components/AboutSection").then(m => ({ default: m.AboutSection })));
 const ToolsSection = lazy(() => import("@/components/ToolsSection").then(m => ({ default: m.ToolsSection })));
-const ConsultationSection = lazy(() => import("@/components/ConsultationSection").then(m => ({ default: m.ConsultationSection })));
 const ServicesSection = lazy(() => import("@/components/ServicesSection").then(m => ({ default: m.ServicesSection })));
 const ROICalculator = lazy(() => import("@/components/ROICalculator").then(m => ({ default: m.ROICalculator })));
 const SuccessStoriesSection = lazy(() => import("@/components/SuccessStoriesSection").then(m => ({ default: m.SuccessStoriesSection })));
 const ProcessSection = lazy(() => import("@/components/ProcessSection").then(m => ({ default: m.ProcessSection })));
+const ConsultationSection = lazy(() => import("@/components/ConsultationSection").then(m => ({ default: m.ConsultationSection })));
 const FAQSection = lazy(() => import("@/components/FAQSection").then(m => ({ default: m.FAQSection })));
 const ContactSection = lazy(() => import("@/components/ContactSection").then(m => ({ default: m.ContactSection })));
 const CalendarBookingSection = lazy(() => import("@/components/CalendarBookingSection").then(m => ({ default: m.CalendarBookingSection })));

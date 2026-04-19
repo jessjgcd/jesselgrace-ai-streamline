@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Play, ArrowRight, Zap, DollarSign, Sparkles, TrendingUp, Lock } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Zap, DollarSign, Sparkles, TrendingUp, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -10,10 +10,10 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import projectBanner from "@/assets/project-banner-new.jpg";
-import projectBannerMobile from "@/assets/project-banner-new.jpg";
 import sora2Workflow from "@/assets/sora2-workflow.png";
 import sora2WorkflowMobile from "@/assets/sora2-workflow-mobile.webp";
+import nexacoreOnboarding from "@/assets/nexacore-onboarding.png";
+import nexacoreLogin from "@/assets/nexacore-login.png";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 const comingSoonProjects = [
@@ -24,7 +24,7 @@ const comingSoonProjects = [
   },
   {
     title: "Auto Social Scheduler",
-    description: "Content repurposing pipeline — one video becomes 10 posts.",
+    description: "Content repurposing pipeline - one video becomes 10 posts.",
     tags: ["Make", "Buffer", "AI"],
   },
   {
@@ -46,6 +46,10 @@ const comingSoonProjects = [
 
 export const ProjectsSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [nexacoreModalOpen, setNexacoreModalOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleProjects = showAll ? comingSoonProjects : comingSoonProjects.slice(0, 1);
 
   return (
     <section className="py-20 px-4 bg-background">
@@ -65,33 +69,15 @@ export const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        {/* Banner */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="w-full h-48 md:h-64 rounded-2xl mb-12 shadow-lg overflow-hidden"
-        >
-          <ResponsiveImage
-            src={projectBanner}
-            mobileSrc={projectBannerMobile}
-            alt="Featured Projects Banner"
-            className="w-full h-full object-cover"
-            loading="lazy"
-            width={1200}
-            height={400}
-          />
-        </motion.div>
-
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
           {/* === FEATURED: Sora 2 Card === */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="md:col-span-2 lg:col-span-1"
           >
             <Card className="overflow-hidden group border-border/50 bg-gradient-to-br from-card to-accent/30 backdrop-blur-sm shadow-md hover:shadow-xl transition-all duration-300 h-full">
               <div className="aspect-video w-full overflow-hidden relative">
@@ -107,134 +93,141 @@ export const ProjectsSection = () => {
               </div>
               <CardContent className="p-5 pt-4">
                 <h3 className="font-semibold text-heading text-lg mb-1">
-                  AI Video Magic Automation – Create Anything with Sora 2
+                  AI Video Magic Automation - Create Anything with Sora 2
                 </h3>
                 <p className="text-muted-foreground text-sm mb-3">
-                  Built a smart automation that turns text into stunning AI videos using Sora 2. Fully hands-free — great for fast content creation.
+                  Built a smart automation that turns text into stunning AI videos using Sora 2. Fully hands-free - great for fast content creation.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {["n8n", "Sora 2", "AI Video", "Automation", "Kie.ai"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary-foreground/80 font-medium"
-                    >
+                    <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary-foreground/80 font-medium">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <Button
-                  size="sm"
-                  className="gap-2 bg-primary hover:bg-primary/80 text-primary-foreground"
-                  onClick={() => setModalOpen(true)}
-                >
+                <Button size="sm" className="gap-2 bg-primary hover:bg-primary/80 text-primary-foreground" onClick={() => setModalOpen(true)}>
                   View Case Study <ArrowRight className="h-4 w-4" />
                 </Button>
               </CardContent>
             </Card>
           </motion.div>
 
-          {/* === Coming Soon Cards === */}
-          {comingSoonProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: (index + 1) * 0.1 }}
-            >
-              <Card className="overflow-hidden group border-border/50 bg-gradient-to-br from-card to-accent/20 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-300 h-full relative">
-                <div className="aspect-video w-full bg-muted/50 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-primary/10" />
-                  <Lock className="h-8 w-8 text-muted-foreground/40 relative z-10" />
+          {/* === FEATURED: Zero-Touch Client Onboarding Pipeline Card === */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            <Card className="overflow-hidden group border-border/50 bg-gradient-to-br from-card to-accent/30 backdrop-blur-sm shadow-md hover:shadow-xl transition-all duration-300 h-full">
+              <div className="aspect-video w-full overflow-hidden relative">
+                <img
+                  src={nexacoreOnboarding}
+                  alt="Zero-Touch Client Onboarding Pipeline Workflow"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <CardContent className="p-5 pt-4">
+                <h3 className="font-semibold text-heading text-lg mb-1">
+                  Zero-Touch Client Onboarding Pipeline
+                </h3>
+                <p className="text-muted-foreground text-sm mb-3">
+                  Built for a client - automates the entire onboarding journey from signup to follow-up with AI-written emails, login tracking, and instant team alerts.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {["n8n", "Groq AI", "Airtable", "Google Sheets", "Telegram"].map((tag) => (
+                    <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary-foreground/80 font-medium">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                <div className="absolute top-3 right-3 z-10">
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground font-medium">
-                    Coming Soon
-                  </span>
-                </div>
-                <CardContent className="p-5 pt-4">
-                  <h3 className="font-semibold text-heading text-lg mb-1">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-3">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                <Button size="sm" className="gap-2 bg-primary hover:bg-primary/80 text-primary-foreground" onClick={() => setNexacoreModalOpen(true)}>
+                  View Case Study <ArrowRight className="h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* === Coming Soon Cards (1 visible, rest hidden) === */}
+          <AnimatePresence>
+            {visibleProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <Card className="overflow-hidden group border-border/50 bg-gradient-to-br from-card to-accent/20 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-300 h-full relative">
+                  <div className="aspect-video w-full bg-muted/50 flex items-center justify-center relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-primary/10" />
+                    <Lock className="h-8 w-8 text-muted-foreground/40 relative z-10" />
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                  <div className="absolute top-3 right-3 z-10">
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground font-medium">
+                      Coming Soon
+                    </span>
+                  </div>
+                  <CardContent className="p-5 pt-4">
+                    <h3 className="font-semibold text-heading text-lg mb-1">{project.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-3">{project.description}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" size="lg" className="rounded-xl">
-            View All Projects
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-xl"
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? "Show Less" : "View All Projects"}
           </Button>
         </div>
       </div>
 
-      {/* === Case Study Modal === */}
-      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+      {/* === Zero-Touch Pipeline Modal === */}
+      <Dialog open={nexacoreModalOpen} onOpenChange={setNexacoreModalOpen}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 mx-2 sm:mx-auto">
           <div className="p-6 md:p-8">
             <DialogHeader className="mb-6">
               <DialogTitle className="text-2xl md:text-3xl font-bold text-heading">
-                AI-Powered Video Creation Automation with Sora 2
+                Zero-Touch Client Onboarding Pipeline
               </DialogTitle>
               <DialogDescription className="text-muted-foreground mt-2">
-                A complete AI video generation workflow — from text prompt to finished video, fully automated.
+                A case study - full automation system built with n8n that handles everything from signup to follow-up, completely hands-free for a client.
               </DialogDescription>
             </DialogHeader>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Left: Media */}
               <div className="space-y-4">
                 <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
-                  <ResponsiveImage
-                    src={sora2Workflow}
-                    mobileSrc={sora2WorkflowMobile}
-                    alt="Sora 2 AI Video Automation Workflow"
-                    className="w-full object-cover"
-                    width={640}
-                    height={360}
-                  />
+                  <img src={nexacoreOnboarding} alt="Client Onboarding Workflow" className="w-full object-cover" />
                 </div>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg border border-border/50">
-                  <iframe
-                    src="https://www.youtube.com/embed/QowqBcNNi48"
-                    title="AI Video Automation Demo – Baby Dragon"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
+                  <img src={nexacoreLogin} alt="Login Tracker Workflow" className="w-full object-cover" />
                 </div>
-                <p className="text-sm text-muted-foreground text-center italic">
-                  See the baby dragon video made automatically! 🐉
-                </p>
               </div>
-
-              {/* Right: Results */}
               <div className="space-y-5">
                 <div className="space-y-3">
                   {[
-                    { icon: Zap, label: "100% Automated", desc: "Text to video in one go" },
-                    { icon: DollarSign, label: "6x Cheaper", desc: "Smart tools save big money" },
-                    { icon: Sparkles, label: "Endless Ideas", desc: "Fantasy, demos, stories fast" },
-                    { icon: TrendingUp, label: "Scale Content", desc: "Create more without extra work" },
+                    { icon: Zap, label: "100% Automated", desc: "From signup to follow-up, zero manual work needed" },
+                    { icon: Sparkles, label: "AI-Written Emails", desc: "Personalized welcome emails generated by Groq AI" },
+                    { icon: TrendingUp, label: "Smart Follow-ups", desc: "Only follows up if client has not logged in after 3 days" },
+                    { icon: DollarSign, label: "Instant Team Alerts", desc: "Telegram notifications keep the team informed in real time" },
                   ].map(({ icon: Icon, label, desc }) => (
-                    <div
-                      key={label}
-                      className="flex items-start gap-3 p-3 rounded-xl bg-accent/40 border border-border/30"
-                    >
+                    <div key={label} className="flex items-start gap-3 p-3 rounded-xl bg-accent/40 border border-border/30">
                       <div className="p-2 rounded-lg bg-primary/20 shrink-0">
                         <Icon className="h-5 w-5 text-heading" />
                       </div>
@@ -245,25 +238,82 @@ export const ProjectsSection = () => {
                     </div>
                   ))}
                 </div>
-
                 <div className="p-4 rounded-xl bg-muted/50 border border-border/30">
                   <p className="text-sm text-foreground leading-relaxed">
-                    Replaced slow manual video work with easy AI automation. Turn ideas into pro-looking videos quickly using Sora 2 — perfect for creators and businesses looking to scale content without extra effort.
+                    When a new client signs up, the system catches their details, saves them to Airtable and Google Sheets, generates a personalized AI welcome email and sends it via Gmail, then alerts the team on Telegram. After 3 days, it checks if they have logged in - if not, it sends a follow-up automatically.
                   </p>
                 </div>
-
                 <div>
-                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                    Tools & Stack
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Tools & Stack</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["n8n", "Groq AI", "Airtable", "Google Sheets", "Gmail", "Telegram"].map((tool) => (
+                      <span key={tool} className="text-xs px-3 py-1 rounded-full bg-primary/15 text-heading font-medium">{tool}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* === Sora 2 Case Study Modal === */}
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 mx-2 sm:mx-auto">
+          <div className="p-6 md:p-8">
+            <DialogHeader className="mb-6">
+              <DialogTitle className="text-2xl md:text-3xl font-bold text-heading">
+                AI-Powered Video Creation Automation with Sora 2
+              </DialogTitle>
+              <DialogDescription className="text-muted-foreground mt-2">
+                A complete AI video generation workflow - from text prompt to finished video, fully automated.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
+                  <ResponsiveImage src={sora2Workflow} mobileSrc={sora2WorkflowMobile} alt="Sora 2 AI Video Automation Workflow" className="w-full object-cover" width={640} height={360} />
+                </div>
+                <div className="aspect-video rounded-xl overflow-hidden shadow-lg border border-border/50">
+                  <iframe
+                    src="https://www.youtube.com/embed/QowqBcNNi48"
+                    title="AI Video Automation Demo - Baby Dragon"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+                <p className="text-sm text-muted-foreground text-center italic">See the baby dragon video made automatically! 🐉</p>
+              </div>
+              <div className="space-y-5">
+                <div className="space-y-3">
+                  {[
+                    { icon: Zap, label: "100% Automated", desc: "Text to video in one go" },
+                    { icon: DollarSign, label: "6x Cheaper", desc: "Smart tools save big money" },
+                    { icon: Sparkles, label: "Endless Ideas", desc: "Fantasy, demos, stories fast" },
+                    { icon: TrendingUp, label: "Scale Content", desc: "Create more without extra work" },
+                  ].map(({ icon: Icon, label, desc }) => (
+                    <div key={label} className="flex items-start gap-3 p-3 rounded-xl bg-accent/40 border border-border/30">
+                      <div className="p-2 rounded-lg bg-primary/20 shrink-0">
+                        <Icon className="h-5 w-5 text-heading" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-heading text-sm">{label}</p>
+                        <p className="text-muted-foreground text-sm">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-4 rounded-xl bg-muted/50 border border-border/30">
+                  <p className="text-sm text-foreground leading-relaxed">
+                    Replaced slow manual video work with easy AI automation. Turn ideas into pro-looking videos quickly using Sora 2 - perfect for creators and businesses looking to scale content without extra effort.
                   </p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Tools & Stack</p>
                   <div className="flex flex-wrap gap-2">
                     {["n8n", "Kie.ai", "Sora 2", "OpenAI / GPT"].map((tool) => (
-                      <span
-                        key={tool}
-                        className="text-xs px-3 py-1 rounded-full bg-primary/15 text-heading font-medium"
-                      >
-                        {tool}
-                      </span>
+                      <span key={tool} className="text-xs px-3 py-1 rounded-full bg-primary/15 text-heading font-medium">{tool}</span>
                     ))}
                   </div>
                 </div>

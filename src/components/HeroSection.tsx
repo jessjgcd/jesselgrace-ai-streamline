@@ -10,17 +10,7 @@ export const HeroSection = () => {
     >
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block"
-          >
-            <span className="px-5 py-2.5 rounded-full bg-primary/30 text-foreground text-sm font-medium inline-flex items-center gap-1.5">
-              <span>⭐</span>
-              <span>Jessel Grace Diagbel — AI Automation Specialist</span>
-            </span>
-          </motion.div>
+          
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

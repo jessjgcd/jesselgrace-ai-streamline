@@ -86,14 +86,14 @@ export const PreviousExperienceSection = () => {
   const [selectedExp, setSelectedExp] = useState<Experience | null>(null);
 
   return (
-    <section className="py-20 px-4 bg-section-tint">
+    <section className="py-14 px-4 bg-section-tint">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 mb-6">
             <Briefcase className="h-4 w-4 text-foreground" />
@@ -109,57 +109,37 @@ export const PreviousExperienceSection = () => {
           </p>
         </motion.div>
 
-        {/* Timeline layout */}
-        <div className="relative">
-          {/* Vertical timeline line - desktop only */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-primary/30" />
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card
+                className="bg-gradient-card border-border/50 cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.35)] group relative"
+                onClick={() => setSelectedExp(exp)}
               >
-                <Card
-                  className="h-full bg-gradient-card border-border/50 cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.35)] group relative"
-                  onClick={() => setSelectedExp(exp)}
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute -top-3 left-6 w-6 h-6 rounded-full bg-gradient-button border-4 border-background shadow-md z-10" />
-
-                  <CardContent className="p-6 pt-8">
-                    <p className="text-xs text-muted-foreground font-medium mb-2 tracking-wide uppercase">
-                      {exp.dates}
-                    </p>
-                    <h3 className="font-bold text-heading text-base mb-4 leading-snug group-hover:text-primary transition-colors">
-                      {exp.emoji} {exp.title}
-                    </h3>
-                    <ul className="space-y-2 mb-4">
-                      {exp.bullets.map((bullet, i) => (
-                        <li
-                          key={i}
-                          className="text-muted-foreground text-sm flex items-start gap-2"
-                        >
-                          <span className="text-primary mt-0.5 shrink-0 text-xs">▸</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <span className="text-xs text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      Click to see full case study →
-                    </span>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                <div className="absolute -top-3 left-6 w-6 h-6 rounded-full bg-gradient-button border-4 border-background shadow-md z-10" />
+                <CardContent className="p-6 pt-8">
+                  <p className="text-xs text-muted-foreground font-medium mb-2 tracking-wide uppercase">
+                    {exp.dates}
+                  </p>
+                  <h3 className="font-bold text-heading text-base mb-2 leading-snug group-hover:text-primary transition-colors">
+                    {exp.emoji} {exp.title}
+                  </h3>
+                  <span className="text-xs text-primary font-medium">
+                    Click to see details →
+                  </span>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
 
-      {/* Modal */}
       <Dialog open={!!selectedExp} onOpenChange={() => setSelectedExp(null)}>
         <DialogContent className="sm:max-w-lg bg-gradient-card border-border/50">
           <DialogHeader>
@@ -170,7 +150,6 @@ export const PreviousExperienceSection = () => {
               {selectedExp?.dates}
             </DialogDescription>
           </DialogHeader>
-
           <div className="space-y-5 mt-2">
             <div>
               <h4 className="text-sm font-semibold text-heading mb-1.5 flex items-center gap-2">
@@ -181,7 +160,6 @@ export const PreviousExperienceSection = () => {
                 {selectedExp?.modal.problem}
               </p>
             </div>
-
             <div>
               <h4 className="text-sm font-semibold text-heading mb-1.5 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary inline-block" />
@@ -191,7 +169,6 @@ export const PreviousExperienceSection = () => {
                 {selectedExp?.modal.solution}
               </p>
             </div>
-
             <div>
               <h4 className="text-sm font-semibold text-heading mb-1.5 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent inline-block" />
@@ -199,10 +176,7 @@ export const PreviousExperienceSection = () => {
               </h4>
               <ul className="space-y-1.5">
                 {selectedExp?.modal.impact.map((item, i) => (
-                  <li
-                    key={i}
-                    className="text-sm text-muted-foreground flex items-start gap-2"
-                  >
+                  <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
                     <span className="text-primary shrink-0">✓</span>
                     <span>{item}</span>
                   </li>
