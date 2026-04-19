@@ -64,13 +64,13 @@ export const ProjectsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-heading mb-3">
             Featured Projects
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base md:text-lg">
             Real results from AI automation workflows I built
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ✅ Outer grid wraps ALL cards — no broken AnimatePresence layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
           {/* === FEATURED: Sora 2 Card === */}
           <motion.div
@@ -91,8 +91,8 @@ export const ProjectsSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <CardContent className="p-5 pt-4">
-                <h3 className="font-semibold text-heading text-lg mb-1">
+              <CardContent className="p-4 md:p-5 pt-4">
+                <h3 className="font-semibold text-heading text-base md:text-lg mb-1">
                   AI Video Magic Automation - Create Anything with Sora 2
                 </h3>
                 <p className="text-muted-foreground text-sm mb-3">
@@ -105,7 +105,7 @@ export const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
-                <Button size="sm" className="gap-2 bg-primary hover:bg-primary/80 text-primary-foreground" onClick={() => setModalOpen(true)}>
+                <Button size="sm" className="gap-2 bg-primary hover:bg-primary/80 text-primary-foreground w-full sm:w-auto" onClick={() => setModalOpen(true)}>
                   View Case Study <ArrowRight className="h-4 w-4" />
                 </Button>
               </CardContent>
@@ -128,8 +128,8 @@ export const ProjectsSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <CardContent className="p-5 pt-4">
-                <h3 className="font-semibold text-heading text-lg mb-1">
+              <CardContent className="p-4 md:p-5 pt-4">
+                <h3 className="font-semibold text-heading text-base md:text-lg mb-1">
                   Zero-Touch Client Onboarding Pipeline
                 </h3>
                 <p className="text-muted-foreground text-sm mb-3">
@@ -142,18 +142,18 @@ export const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
-                <Button size="sm" className="gap-2 bg-primary hover:bg-primary/80 text-primary-foreground" onClick={() => setNexacoreModalOpen(true)}>
+                <Button size="sm" className="gap-2 bg-primary hover:bg-primary/80 text-primary-foreground w-full sm:w-auto" onClick={() => setNexacoreModalOpen(true)}>
                   View Case Study <ArrowRight className="h-4 w-4" />
                 </Button>
               </CardContent>
             </Card>
           </motion.div>
 
-          {/* === Coming Soon Cards (1 visible, rest hidden) === */}
+          {/* === Coming Soon Cards — rendered directly in grid, no wrapper div === */}
           <AnimatePresence>
             {visibleProjects.map((project, index) => (
               <motion.div
-                key={index}
+                key={project.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
@@ -169,8 +169,8 @@ export const ProjectsSection = () => {
                       Coming Soon
                     </span>
                   </div>
-                  <CardContent className="p-5 pt-4">
-                    <h3 className="font-semibold text-heading text-lg mb-1">{project.title}</h3>
+                  <CardContent className="p-4 md:p-5 pt-4">
+                    <h3 className="font-semibold text-heading text-base md:text-lg mb-1">{project.title}</h3>
                     <p className="text-muted-foreground text-sm mb-3">{project.description}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {project.tags.map((tag) => (
@@ -186,11 +186,11 @@ export const ProjectsSection = () => {
           </AnimatePresence>
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-10">
           <Button
             variant="outline"
             size="lg"
-            className="rounded-xl"
+            className="rounded-xl w-full sm:w-auto"
             onClick={() => setShowAll(!showAll)}
           >
             {showAll ? "Show Less" : "View All Projects"}
@@ -200,10 +200,10 @@ export const ProjectsSection = () => {
 
       {/* === Zero-Touch Pipeline Modal === */}
       <Dialog open={nexacoreModalOpen} onOpenChange={setNexacoreModalOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 mx-2 sm:mx-auto">
-          <div className="p-6 md:p-8">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 mx-3 sm:mx-auto w-[calc(100%-1.5rem)] sm:w-full">
+          <div className="p-5 md:p-8">
             <DialogHeader className="mb-6">
-              <DialogTitle className="text-2xl md:text-3xl font-bold text-heading">
+              <DialogTitle className="text-xl md:text-3xl font-bold text-heading">
                 Zero-Touch Client Onboarding Pipeline
               </DialogTitle>
               <DialogDescription className="text-muted-foreground mt-2">
@@ -259,10 +259,10 @@ export const ProjectsSection = () => {
 
       {/* === Sora 2 Case Study Modal === */}
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 mx-2 sm:mx-auto">
-          <div className="p-6 md:p-8">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 mx-3 sm:mx-auto w-[calc(100%-1.5rem)] sm:w-full">
+          <div className="p-5 md:p-8">
             <DialogHeader className="mb-6">
-              <DialogTitle className="text-2xl md:text-3xl font-bold text-heading">
+              <DialogTitle className="text-xl md:text-3xl font-bold text-heading">
                 AI-Powered Video Creation Automation with Sora 2
               </DialogTitle>
               <DialogDescription className="text-muted-foreground mt-2">

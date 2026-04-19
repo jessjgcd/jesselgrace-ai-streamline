@@ -6,12 +6,10 @@ export const HeroSection = () => {
     <section
       id="home"
       className="bg-gradient-hero pt-24 pb-16 px-4 flex items-center"
-      style={{ minHeight: '100svh' }}
+      style={{ minHeight: "100svh" }}
     >
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,13 +39,20 @@ export const HeroSection = () => {
             transition={{ delay: 0.6 }}
             className="flex flex-wrap justify-center gap-4 pt-4"
           >
+            {/* ✅ Glowing CTA button */}
             <a
               href="#consultation"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-button rounded-full text-primary-foreground font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-button rounded-full text-primary-foreground font-medium transition-all hover:scale-105"
+              style={{
+                boxShadow:
+                  "0 0 15px rgba(168, 85, 247, 0.5), 0 0 30px rgba(236, 72, 153, 0.3)",
+                animation: "ctaGlow 2.5s ease-in-out infinite",
+              }}
             >
               <Calendar className="h-5 w-5" />
               Book Free Call
             </a>
+
             <a
               href="#services"
               className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border rounded-full text-foreground font-medium hover:bg-muted transition-all hover:scale-105"

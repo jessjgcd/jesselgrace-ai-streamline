@@ -13,14 +13,33 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ];
 
+// ✅ Glow keyframe injected once
+if (typeof document !== "undefined" && !document.getElementById("cta-glow-style")) {
+  const style = document.createElement("style");
+  style.id = "cta-glow-style";
+  style.textContent = `
+    @keyframes ctaGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.5), 0 0 30px rgba(236, 72, 153, 0.3); }
+      50%       { box-shadow: 0 0 25px rgba(168, 85, 247, 0.85), 0 0 50px rgba(236, 72, 153, 0.55); }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 export const Header = () => {
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0); // ✅ scroll progress
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // ✅ Calculate scroll progress
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+      setScrollProgress(progress);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -46,7 +65,16 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2" aria-label="Glogicraft Home">
-            <ResponsiveImage src={logo} mobileSrc={logoMobile} alt="Glogicraft Logo" className="h-10 w-10" loading="eager" fetchPriority="high" width={40} height={40} />
+            <ResponsiveImage
+              src={logo}
+              mobileSrc={logoMobile}
+              alt="Glogicraft Logo"
+              className="h-10 w-10"
+              loading="eager"
+              fetchPriority="high"
+              width={40}
+              height={40}
+            />
             <span className="font-poppins text-sm font-medium text-foreground">
               Glogicraft
             </span>
@@ -137,6 +165,14 @@ export const Header = () => {
             </motion.nav>
           )}
         </AnimatePresence>
+      </div>
+
+      {/* ✅ Scroll progress bar */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-transparent">
+        <div
+          className="h-full bg-gradient-to-r from-[#EC4899] via-[#A855F7] to-[#60A5FA] transition-all duration-75"
+          style={{ width: `${scrollProgress}%` }}
+        />
       </div>
     </motion.header>
   );

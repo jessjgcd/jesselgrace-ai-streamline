@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
-import { Star, Trophy, ArrowRight, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Trophy, ArrowRight, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const stories = [
   {
@@ -83,17 +83,68 @@ const stories = [
 ];
 
 const highlightMetrics = [
-  { number: "70%", label: "Reduction in Manual Tasks" },
-  { number: "200%", label: "Content Output Increase" },
-  { number: "$4.8K", label: "Monthly Labor Savings" },
-  { number: "15+", label: "Hours Saved Per Week" },
-  { number: "99%+", label: "Workflow Uptime" },
-  { number: "2×", label: "Pipeline Value Growth" },
+  { number: "70%",   label: "Reduction in Manual Tasks",  target: 70,  prefix: "",   suffix: "%" },
+  { number: "200%",  label: "Content Output Increase",    target: 200, prefix: "",   suffix: "%" },
+  { number: "$4.8K", label: "Monthly Labor Savings",      target: 4.8, prefix: "$",  suffix: "K" },
+  { number: "15+",   label: "Hours Saved Per Week",       target: 15,  prefix: "",   suffix: "+" },
+  { number: "99%+",  label: "Workflow Uptime",            target: 99,  prefix: "",   suffix: "%+" },
+  { number: "2×",    label: "Pipeline Value Growth",      target: 2,   prefix: "",   suffix: "×" },
 ];
+
+function useAnimatedCounter(target: number, duration = 1800, decimals = 0) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting && !started) setStarted(true); },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    let startTime: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(parseFloat((eased * target).toFixed(decimals)));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [started, target, duration, decimals]);
+
+  return { count, ref };
+}
+
+function MetricCard({ m, i }: { m: typeof highlightMetrics[0]; i: number }) {
+  const decimals = m.target % 1 !== 0 ? 1 : 0;
+  const { count, ref } = useAnimatedCounter(m.target, 1600, decimals);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.08 }}
+      className="text-center p-3 md:p-4 rounded-2xl bg-card border border-border/50 hover:shadow-[0_4px_20px_-4px_hsl(var(--primary)/0.3)] transition-shadow"
+    >
+      <p className="text-xl md:text-3xl font-bold text-gradient">
+        {m.prefix}{decimals > 0 ? count.toFixed(1) : Math.floor(count)}{m.suffix}
+      </p>
+      <p className="text-[10px] md:text-xs text-muted-foreground mt-1 leading-tight">{m.label}</p>
+    </motion.div>
+  );
+}
 
 export const SuccessStoriesSection = () => {
   const [current, setCurrent] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(3);
+  const [itemsPerView, setItemsPerView] = useState(1);
 
   useEffect(() => {
     const update = () => {
@@ -105,11 +156,9 @@ export const SuccessStoriesSection = () => {
   }, []);
 
   const maxIndex = Math.max(0, stories.length - itemsPerView);
-
   const prev = useCallback(() => setCurrent((c) => Math.max(0, c - 1)), []);
   const next = useCallback(() => setCurrent((c) => Math.min(maxIndex, c + 1)), [maxIndex]);
 
-  // Auto-scroll
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((c) => (c >= maxIndex ? 0 : c + 1));
@@ -129,60 +178,43 @@ export const SuccessStoriesSection = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 mb-6">
             <Trophy className="h-4 w-4 text-foreground" />
-            <span className="text-sm font-medium text-foreground">
-              Success Stories
-            </span>
+            <span className="text-sm font-medium text-foreground">Success Stories</span>
           </div>
-
           <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
-            Client
-            <span className="text-gradient"> Transformations</span>
+            Client<span className="text-gradient"> Transformations</span>
           </h2>
-
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Real results from businesses that trusted me with their automation
-            journey.
+            Real results from businesses that trusted me with their automation journey.
           </p>
         </motion.div>
 
-        {/* Highlight Metrics Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-14">
+        {/* ✅ Metrics grid: 2 cols on mobile, 3 on sm, 6 on lg */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 mb-14">
           {highlightMetrics.map((m, i) => (
-            <motion.div
-              key={m.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="text-center p-4 rounded-2xl bg-card border border-border/50 hover:shadow-[0_4px_20px_-4px_hsl(var(--primary)/0.3)] transition-shadow"
-            >
-              <p className="text-2xl md:text-3xl font-bold text-gradient">{m.number}</p>
-              <p className="text-xs text-muted-foreground mt-1">{m.label}</p>
-            </motion.div>
+            <MetricCard key={m.label} m={m} i={i} />
           ))}
         </div>
 
         {/* Carousel */}
         <div className="relative">
-          {/* Arrows */}
           <button
             onClick={prev}
             disabled={current === 0}
-            className="absolute left-0 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-card border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            className="absolute left-0 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-card border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Previous"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
           <button
             onClick={next}
             disabled={current >= maxIndex}
-            className="absolute right-0 sm:-right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-card border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            className="absolute right-0 sm:-right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-card border border-border shadow-md flex items-center justify-center text-foreground hover:bg-primary/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Next"
           >
-            <ChevronRight className="h-5 w-5" />
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
 
-          <div className="overflow-hidden px-5 sm:px-0">
+          <div className="overflow-hidden px-6 sm:px-0">
             <motion.div
               className="flex"
               animate={{ x: `${-current * (100 / itemsPerView)}%` }}
@@ -191,51 +223,37 @@ export const SuccessStoriesSection = () => {
               {stories.map((story, index) => (
                 <div
                   key={index}
-                  className="px-3 shrink-0"
+                  className="px-2 sm:px-3 shrink-0"
                   style={{ width: `${100 / itemsPerView}%` }}
                 >
-                  <div className="group p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.35)] h-full flex flex-col relative overflow-hidden">
-                    {/* Quote icon */}
-                    <Quote className="absolute top-4 right-4 h-8 w-8 text-primary/15" />
-
-                    {/* Big metric number */}
-                    <p className="text-4xl font-bold text-gradient mb-1">{story.metricNumber}</p>
-                    <p className="text-xs text-muted-foreground font-medium mb-4">{story.metricLabel}</p>
-
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-2xl">{story.icon}</span>
-                      <h3 className="font-semibold text-foreground text-sm">
-                        {story.client}
-                      </h3>
+                  <div className="group p-4 md:p-6 rounded-2xl bg-card border border-border transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_-8px_hsl(var(--primary)/0.35)] h-full flex flex-col relative overflow-hidden">
+                    <Quote className="absolute top-4 right-4 h-6 w-6 md:h-8 md:w-8 text-primary/15" />
+                    <p className="text-3xl md:text-4xl font-bold text-gradient mb-1">{story.metricNumber}</p>
+                    <p className="text-xs text-muted-foreground font-medium mb-3 md:mb-4">{story.metricLabel}</p>
+                    <div className="flex items-center gap-2 md:gap-3 mb-3">
+                      <span className="text-xl md:text-2xl">{story.icon}</span>
+                      <h3 className="font-semibold text-foreground text-xs md:text-sm">{story.client}</h3>
                     </div>
-
                     <div className="space-y-2 text-sm flex-1">
                       <p className="text-muted-foreground italic text-xs leading-relaxed">
                         "{story.challenge} → {story.solution}"
                       </p>
-
-                      <div className="p-3 rounded-xl bg-primary/10">
-                        <p className="font-semibold text-foreground text-sm">
-                          ✨ {story.results}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {story.metric}
-                        </p>
+                      <div className="p-2 md:p-3 rounded-xl bg-primary/10">
+                        <p className="font-semibold text-foreground text-xs md:text-sm">✨ {story.results}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{story.metric}</p>
                       </div>
-
                       <div className="flex items-center gap-2">
                         <span className="text-xs px-2 py-1 rounded-full bg-secondary text-foreground">
                           🛠️ {story.tools}
                         </span>
                       </div>
                     </div>
-
                     <a
                       href="#contact"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors group-hover:gap-3"
+                      className="mt-3 md:mt-4 inline-flex items-center gap-2 text-xs md:text-sm font-medium text-foreground hover:text-primary transition-colors group-hover:gap-3"
                     >
                       Get Similar Results
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-3 w-3 md:h-4 md:w-4" />
                     </a>
                   </div>
                 </div>
@@ -250,9 +268,7 @@ export const SuccessStoriesSection = () => {
                 key={i}
                 onClick={() => setCurrent(i)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "bg-primary w-6"
-                    : "bg-border hover:bg-muted-foreground"
+                  i === current ? "bg-primary w-6" : "bg-border hover:bg-muted-foreground"
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />

@@ -86,7 +86,8 @@ export const ProcessSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ✅ 1 col mobile → 2 col sm → 3 col lg, with proper padding */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
@@ -94,20 +95,20 @@ export const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-gradient-card border border-border card-hover"
+              className="p-5 md:p-6 rounded-2xl bg-gradient-card border border-border card-hover"
             >
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center gap-3 md:gap-4 mb-4">
                 <div
-                  className={`w-12 h-12 rounded-2xl bg-${step.color} flex items-center justify-center`}
+                  className={`w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-${step.color} flex items-center justify-center shrink-0`}
                 >
-                  <step.icon className="h-6 w-6 text-foreground" />
+                  <step.icon className="h-5 w-5 md:h-6 md:w-6 text-foreground" />
                 </div>
-                <span className="text-3xl font-bold text-primary/50">
+                <span className="text-2xl md:text-3xl font-bold text-primary/50">
                   {step.number}
                 </span>
               </div>
 
-              <h3 className="font-semibold text-foreground mb-2">
+              <h3 className="font-semibold text-foreground text-sm md:text-base mb-2">
                 {step.title}
               </h3>
 
@@ -115,13 +116,13 @@ export const ProcessSection = () => {
                 {step.description}
               </p>
 
-              <ul className="space-y-1 mb-4">
+              <ul className="space-y-1.5 mb-4">
                 {step.details.map((detail) => (
                   <li
                     key={detail}
                     className="text-xs text-foreground/70 flex items-center gap-2"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                     {detail}
                   </li>
                 ))}

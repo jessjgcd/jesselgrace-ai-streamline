@@ -12,8 +12,8 @@ const tools = [
 ];
 
 export const ToolsSection = () => {
-  // Duplicate tools array for seamless infinite scroll
-  const duplicatedTools = [...tools, ...tools];
+  // Triple duplicate for a fully seamless infinite loop
+  const duplicatedTools = [...tools, ...tools, ...tools];
 
   return (
     <section className="py-20 px-4 bg-background overflow-hidden">
@@ -42,51 +42,49 @@ export const ToolsSection = () => {
           </p>
         </motion.div>
 
-        {/* Infinite Marquee Container */}
-        <div className="relative group">
+        {/* ✅ Marquee wrapper */}
+        <div className="relative overflow-hidden">
           {/* Gradient fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-10 md:w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-10 md:w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-          {/* Marquee track */}
-          <motion.div
-            className="flex gap-8 group-hover:[animation-play-state:paused]"
-            animate={{
-              x: [0, -50 * tools.length * 2],
-            }}
-            transition={{
-              x: {
-                duration: 30,
-                repeat: Infinity,
-                ease: "linear",
-              },
-            }}
+          {/* ✅ CSS keyframe animation — perfectly seamless, no jump */}
+          <div
+            className="flex gap-4 md:gap-6"
             style={{
               width: "fit-content",
+              animation: "marqueeScroll 40s linear infinite",
             }}
           >
             {duplicatedTools.map((tool, index) => (
-              <motion.div
+              <div
                 key={`${tool.name}-${index}`}
-                whileHover={{ scale: 1.1 }}
-                className="flex-shrink-0 p-4 md:p-6 rounded-2xl bg-card border border-border shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="flex-shrink-0 flex flex-col items-center justify-center p-3 md:p-4 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                style={{ minWidth: "70px" }}
               >
                 <img
                   src={tool.logo}
                   alt={`${tool.name} logo`}
-                  width="65"
-                  height="65"
                   loading="lazy"
                   decoding="async"
                   className="object-contain grayscale hover:grayscale-0 dark:grayscale-0 transition-all duration-300"
+                  style={{ width: "36px", height: "36px" }}
                 />
-                <p className="text-center text-xs font-medium text-muted-foreground mt-2">
+                <p className="text-center text-[10px] md:text-xs font-medium text-muted-foreground mt-2 whitespace-nowrap">
                   {tool.name}
                 </p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
+
+        {/* ✅ Keyframe — moves exactly 1/3 of the tripled list = seamless loop */}
+        <style>{`
+          @keyframes marqueeScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); }
+          }
+        `}</style>
       </div>
     </section>
   );
