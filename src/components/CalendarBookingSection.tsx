@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, Globe, Video } from "lucide-react";
 
 const GOOGLE_CALENDAR_URL =
-  "https://calendar.google.com/calendar/embed?height=550&wkst=1&ctz=Asia%2FManila&showPrint=0&src=amRpYWdiZWw4QGdtYWlsLmNvbQ&color=%23039be5";
+  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3P0hCGlXPor4k92B39vKIQF-z9Aku27W-0W4H6D1cQ_kU0g6KKF0MFtDP9LbMKrJN_9PP-TPci?gv=true";
 
 export const CalendarBookingSection = () => {
   return (
@@ -51,7 +51,7 @@ export const CalendarBookingSection = () => {
             </div>
 
             <div className="p-4 md:p-8">
-              {/* ✅ Info cards — 1 col on mobile, 3 on sm+ */}
+              {/* Info cards */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-6">
                 <div className="flex items-center gap-3 p-3 md:p-4 bg-secondary/30 rounded-xl">
                   <Clock className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0" />
@@ -76,9 +76,9 @@ export const CalendarBookingSection = () => {
                 </div>
               </div>
 
-              {/* ✅ Calendar — responsive container with scroll on mobile */}
+              {/* Calendar iframe */}
               <div className="w-full rounded-2xl overflow-hidden border border-border/50">
-                {/* Mobile: show a nice CTA button instead of broken iframe */}
+                {/* Mobile: button only */}
                 <div className="block sm:hidden">
                   <div className="p-6 text-center space-y-4 bg-secondary/20">
                     <Calendar className="h-10 w-10 text-primary mx-auto" />
@@ -100,14 +100,13 @@ export const CalendarBookingSection = () => {
                   </div>
                 </div>
 
-                {/* Desktop: full iframe embed */}
+                {/* Desktop: iframe */}
                 <div className="hidden sm:block">
                   <iframe
                     src={GOOGLE_CALENDAR_URL}
-                    className="w-full"
-                    style={{ border: 0, minHeight: 500 }}
-                    height="550"
-                    scrolling="no"
+                    width="100%"
+                    height="600"
+                    style={{ border: 0, display: "block" }}
                     title="Google Calendar - Book a call"
                   />
                 </div>
@@ -137,7 +136,7 @@ export const CalendarBookingSection = () => {
         </motion.div>
       </div>
 
-      {/* ✅ Floating Book button — glowing, matches hero CTA style */}
+      {/* Floating Book button */}
       <a
         href={GOOGLE_CALENDAR_URL}
         target="_blank"
@@ -154,4 +153,5 @@ export const CalendarBookingSection = () => {
     </section>
   );
 };
+
 export default CalendarBookingSection;

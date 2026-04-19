@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Lightbulb, Clock, Video, Calendar } from "lucide-react";
 
 const GOOGLE_CALENDAR_URL =
-  "https://calendar.google.com/calendar/embed?height=550&wkst=1&ctz=Asia%2FManila&showPrint=0&src=amRpYWdiZWw4QGdtYWlsLmNvbQ&color=%23039be5";
+  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3P0hCGlXPor4k92B39vKIQF-z9Aku27W-0W4H6D1cQ_kU0g6KKF0MFtDP9LbMKrJN_9PP-TPci?gv=true";
 
 const options = [
   {
