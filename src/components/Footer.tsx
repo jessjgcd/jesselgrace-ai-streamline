@@ -11,7 +11,7 @@ export const Footer = () => {
           {/* ✅ Single compact row — stacks tightly on mobile */}
           <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
 
-            {/* Logo + copyright */}
+            {/* Logo + copyright + tagline */}
             <div className="flex items-center gap-2">
               <ResponsiveImage
                 src={logo}
@@ -21,9 +21,14 @@ export const Footer = () => {
                 width={24}
                 height={24}
               />
-              <span className="font-poppins text-xs text-muted-foreground">
-                © 2025 Jessel Grace Diagbel
-              </span>
+              <div className="text-center md:text-left">
+                <span className="font-poppins text-xs text-muted-foreground">
+                  © 2025 Glogicraft
+                </span>
+                <span className="block text-[10px] md:inline md:ml-2 font-poppins text-muted-foreground">
+                  Let’s automate your business together
+                </span>
+              </div>
             </div>
 
             {/* Links */}
@@ -47,4 +52,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
 export default Footer;

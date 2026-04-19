@@ -11,7 +11,7 @@ export const IntroVideoSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 mb-6">
-            <span className="text-sm font-medium text-foreground">👋 Meet Jessel Grace</span>
+            <span className="text-sm font-medium text-foreground">👋 Meet your AI Automation Specialist</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-bold text-heading mb-3">
