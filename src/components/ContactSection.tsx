@@ -18,14 +18,39 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service_id: "service_83ev8cw",
+          template_id: "template_5dd3lxs",
+          user_id: "p7zsM4ZoVx-YgdIon",
+          template_params: {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+          },
+        }),
+      });
 
-    toast({
-      title: "Message sent! 💖",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
+      if (!response.ok) throw new Error("Failed to send");
 
-    setFormData({ name: "", email: "", message: "" });
+      toast({
+        title: "Message sent! 💖",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+
+    } catch (error) {
+      toast({
+        title: "Something went wrong 😔",
+        description: "Please try again or email me directly.",
+        variant: "destructive",
+      });
+    }
+
     setIsSubmitting(false);
   };
 
@@ -45,12 +70,10 @@ export const ContactSection = () => {
               Get In Touch
             </span>
           </div>
-
           <h2 className="text-3xl md:text-4xl font-bold text-heading mb-4">
             Let's Start Your
             <span className="text-gradient"> Automation Journey</span>
           </h2>
-
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Ready to transform your business? Drop me a message!
           </p>
@@ -65,7 +88,10 @@ export const ContactSection = () => {
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="contact-name" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="contact-name"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Your Name
               </label>
               <Input
@@ -82,7 +108,10 @@ export const ContactSection = () => {
             </div>
 
             <div>
-              <label htmlFor="contact-email" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="contact-email"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Email Address
               </label>
               <Input
@@ -99,7 +128,10 @@ export const ContactSection = () => {
             </div>
 
             <div>
-              <label htmlFor="contact-message" className="block text-sm font-medium text-foreground mb-2">
+              <label
+                htmlFor="contact-message"
+                className="block text-sm font-medium text-foreground mb-2"
+              >
                 Message
               </label>
               <Textarea
@@ -135,4 +167,5 @@ export const ContactSection = () => {
     </section>
   );
 };
+
 export default ContactSection;
