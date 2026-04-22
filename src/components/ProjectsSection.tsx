@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Zap, DollarSign, Sparkles, TrendingUp, Lock } from "lucide-react";
+import { ArrowRight, Zap, DollarSign, Sparkles, TrendingUp, Lock, Bot, Users, Brain, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -14,6 +14,8 @@ import sora2Workflow from "@/assets/sora2-workflow.png";
 import sora2WorkflowMobile from "@/assets/sora2-workflow-mobile.webp";
 import nexacoreOnboarding from "@/assets/nexacore-onboarding.png";
 import nexacoreLogin from "@/assets/nexacore-login.png";
+import aiAgentWorkflow from "@/assets/nexacore-ai-agent.png";
+import aiAgentHuman from "@/assets/nexacore-human-active.png";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 const comingSoonProjects = [
@@ -47,6 +49,7 @@ const comingSoonProjects = [
 export const ProjectsSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [nexacoreModalOpen, setNexacoreModalOpen] = useState(false);
+  const [aiAgentModalOpen, setAiAgentModalOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
 
   const visibleProjects = showAll ? comingSoonProjects : comingSoonProjects.slice(0, 1);
@@ -69,7 +72,6 @@ export const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        {/* ✅ Outer grid wraps ALL cards — no broken AnimatePresence layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
           {/* === FEATURED: Sora 2 Card === */}
@@ -149,7 +151,44 @@ export const ProjectsSection = () => {
             </Card>
           </motion.div>
 
-          {/* === Coming Soon Cards — rendered directly in grid, no wrapper div === */}
+          {/* === FEATURED: AI Support Agent Card === */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            <Card className="overflow-hidden group border-border/50 bg-gradient-to-br from-card to-accent/30 backdrop-blur-sm shadow-md hover:shadow-xl transition-all duration-300 h-full">
+              <div className="aspect-video w-full overflow-hidden relative">
+                <img
+                  src={aiAgentWorkflow}
+                  alt="AI Support Agent with Human Handover Workflow"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <CardContent className="p-4 md:p-5 pt-4">
+                <h3 className="font-semibold text-heading text-base md:text-lg mb-1">
+                  AI Support Agent with Smart Human Handover
+                </h3>
+                <p className="text-muted-foreground text-sm mb-3">
+                  A 24/7 AI support agent that answers customer questions from a knowledge base — and hands off to a human agent automatically when needed.
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {["n8n", "OpenAI", "Supabase", "PostgreSQL", "Telegram"].map((tag) => (
+                    <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary-foreground/80 font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Button size="sm" className="gap-2 bg-primary hover:bg-primary/80 text-primary-foreground w-full sm:w-auto" onClick={() => setAiAgentModalOpen(true)}>
+                  View Case Study <ArrowRight className="h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* === Coming Soon Cards === */}
           <AnimatePresence>
             {visibleProjects.map((project, index) => (
               <motion.div
@@ -197,6 +236,65 @@ export const ProjectsSection = () => {
           </Button>
         </div>
       </div>
+
+      {/* === AI Support Agent Modal === */}
+      <Dialog open={aiAgentModalOpen} onOpenChange={setAiAgentModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 mx-3 sm:mx-auto w-[calc(100%-1.5rem)] sm:w-full">
+          <div className="p-5 md:p-8">
+            <DialogHeader className="mb-6">
+              <DialogTitle className="text-xl md:text-3xl font-bold text-heading">
+                AI Support Agent with Smart Human Handover
+              </DialogTitle>
+              <DialogDescription className="text-muted-foreground mt-2">
+                A case study — a 24/7 AI support agent built with n8n that answers customer questions automatically and hands off to a human agent when needed, without any overlap or confusion.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
+                  <img src={aiAgentWorkflow} alt="AI Support Agent Workflow" className="w-full object-cover" />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
+                  <img src={aiAgentHuman} alt="Human Handover Workflow" className="w-full object-cover" />
+                </div>
+              </div>
+              <div className="space-y-5">
+                <div className="space-y-3">
+                  {[
+                    { icon: Bot, label: "24/7 AI Support", desc: "Answers customer questions automatically using a verified knowledge base" },
+                    { icon: Brain, label: "Self-Learning", desc: "Saves every good answer and gets smarter with every conversation" },
+                    { icon: Users, label: "Smart Human Handover", desc: "Staff types 'on it' to pause AI and 'done' to bring it back automatically" },
+                    { icon: Shield, label: "No Overlap", desc: "AI stays silent when a human is active — no double replies, no confusion" },
+                  ].map(({ icon: Icon, label, desc }) => (
+                    <div key={label} className="flex items-start gap-3 p-3 rounded-xl bg-accent/40 border border-border/30">
+                      <div className="p-2 rounded-lg bg-primary/20 shrink-0">
+                        <Icon className="h-5 w-5 text-heading" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-heading text-sm">{label}</p>
+                        <p className="text-muted-foreground text-sm">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-4 rounded-xl bg-muted/50 border border-border/30">
+                  <p className="text-sm text-foreground leading-relaxed">
+                    When a customer sends a message, the AI checks if a human is already handling the conversation. If yes — it stays silent. If no — it searches the knowledge base and replies instantly. When it can't answer, it alerts the support team via Telegram and sends a warm message to the customer. Once the human is done, one command brings the AI back online.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Tools & Stack</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["n8n", "OpenAI", "Supabase", "PostgreSQL", "Telegram", "pgvector"].map((tool) => (
+                      <span key={tool} className="text-xs px-3 py-1 rounded-full bg-primary/15 text-heading font-medium">{tool}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* === Zero-Touch Pipeline Modal === */}
       <Dialog open={nexacoreModalOpen} onOpenChange={setNexacoreModalOpen}>
@@ -322,7 +420,9 @@ export const ProjectsSection = () => {
           </div>
         </DialogContent>
       </Dialog>
+
     </section>
   );
 };
+
 export default ProjectsSection;
